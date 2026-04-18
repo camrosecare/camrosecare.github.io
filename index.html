@@ -11,13 +11,12 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/templatemo-style.css" />
 
-    <!-- Premium fonts -->
+    <!-- Premium fonts only — no other CDN needed -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Swiper & AOS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <!-- AOS scroll animations (CSS only, no effect on images) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
@@ -51,18 +50,6 @@
             line-height: 1.6;
         }
 
-        /* Subtle paper-like noise texture */
-        body::after {
-            content: '';
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 9000;
-        }
-
-        /* ============================================================
-           TYPOGRAPHY
-        ============================================================ */
         h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
         h4, h5, h6 { font-family: 'DM Sans', sans-serif; font-weight: 600; }
 
@@ -71,28 +58,28 @@
         ============================================================ */
         .site-nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            padding: 18px 50px;
+            padding: 16px 50px;
             display: flex; align-items: center; justify-content: space-between;
-            background: rgba(250, 246, 240, 0.88);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid rgba(212, 95, 60, 0.1);
+            background: rgba(250, 246, 240, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 95, 60, 0.12);
             transition: all 0.35s ease;
         }
         .site-nav.scrolled {
-            padding: 12px 50px;
-            box-shadow: 0 6px 40px rgba(44, 36, 22, 0.08);
+            padding: 10px 50px;
+            box-shadow: 0 4px 30px rgba(44, 36, 22, 0.09);
         }
         .brand-name {
             font-family: 'Playfair Display', serif;
-            font-weight: 900; font-size: 1.05rem;
-            color: var(--terra); max-width: 280px; line-height: 1.35;
+            font-weight: 900; font-size: 1rem;
+            color: var(--terra); max-width: 260px; line-height: 1.35;
         }
         .nav-links { display: flex; gap: 6px; list-style: none; }
         .nav-links a {
             display: inline-block; padding: 8px 22px; border-radius: 50px;
             font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.9rem;
-            color: var(--dark); text-decoration: none; letter-spacing: 0.2px;
+            color: var(--dark); text-decoration: none;
             transition: all 0.25s ease;
         }
         .nav-links a:hover, .nav-links a.active {
@@ -112,415 +99,356 @@
         ============================================================ */
         .hero-section {
             min-height: 100vh;
-            padding: 130px 60px 90px;
+            padding: 120px 60px 80px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px; align-items: center;
             position: relative; overflow: hidden;
         }
-        /* Ambient blob backgrounds */
+
+        /* Ambient blobs */
+        .blob-1, .blob-2 { position: absolute; border-radius: 50%; pointer-events: none; }
         .blob-1 {
-            position: absolute; width: 700px; height: 700px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(232,168,56,0.14) 0%, transparent 70%);
-            top: -200px; right: -150px; pointer-events: none;
+            width: 650px; height: 650px;
+            background: radial-gradient(circle, rgba(232,168,56,0.13) 0%, transparent 70%);
+            top: -180px; right: -150px;
             animation: floatBlob 9s ease-in-out infinite;
         }
         .blob-2 {
-            position: absolute; width: 500px; height: 500px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(92,122,94,0.12) 0%, transparent 70%);
-            bottom: -80px; left: -100px; pointer-events: none;
+            width: 480px; height: 480px;
+            background: radial-gradient(circle, rgba(92,122,94,0.11) 0%, transparent 70%);
+            bottom: -80px; left: -100px;
             animation: floatBlob 11s ease-in-out infinite reverse;
         }
         @keyframes floatBlob {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33%       { transform: translate(30px, -25px) scale(1.04); }
-            66%       { transform: translate(-20px, 18px) scale(0.97); }
+            0%, 100% { transform: translate(0,0) scale(1); }
+            33%       { transform: translate(28px,-22px) scale(1.04); }
+            66%       { transform: translate(-18px,16px) scale(0.97); }
         }
 
         .hero-left { position: relative; z-index: 2; }
 
         .eyebrow {
             display: inline-block;
-            background-color: var(--gold-light); color: #7A5A00;
+            background: var(--gold-light); color: #7A5A00;
             padding: 6px 18px; border-radius: 50px;
-            font-size: 0.78rem; font-weight: 700;
-            letter-spacing: 1.8px; text-transform: uppercase;
-            margin-bottom: 22px;
+            font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 1.8px; text-transform: uppercase; margin-bottom: 20px;
         }
-
         .hero-title {
-            font-size: clamp(2.4rem, 3.8vw, 3.8rem);
+            font-size: clamp(2.2rem, 3.5vw, 3.6rem);
             font-weight: 900; color: var(--dark); margin-bottom: 14px;
         }
         .hero-title .accent { color: var(--terra); font-style: italic; }
 
         .hero-subtitle {
-            font-size: 1.05rem; color: var(--mid); font-weight: 400;
-            margin-bottom: 36px; max-width: 420px; line-height: 1.75;
+            font-size: 1rem; color: var(--mid);
+            margin-bottom: 30px; max-width: 400px; line-height: 1.8;
         }
 
-        /* Hours floating card */
         .hours-card {
-            background: white; border-radius: 20px;
-            padding: 22px 28px; margin-bottom: 36px;
-            box-shadow: 0 8px 40px rgba(44, 36, 22, 0.07);
+            background: white; border-radius: 18px;
+            padding: 20px 26px; margin-bottom: 32px;
+            box-shadow: 0 8px 36px rgba(44,36,22,0.07);
             border-left: 5px solid var(--terra);
             display: inline-block;
         }
-        .hours-card .label {
-            font-size: 0.72rem; text-transform: uppercase;
-            letter-spacing: 1.8px; color: var(--faint); font-weight: 700; margin-bottom: 8px;
+        .hours-card .h-label {
+            font-size: 0.7rem; text-transform: uppercase;
+            letter-spacing: 1.8px; color: var(--faint); font-weight: 700; margin-bottom: 6px;
         }
-        .hours-card .time {
+        .hours-card .h-time {
             font-family: 'Playfair Display', serif;
-            font-size: 1.9rem; font-weight: 700; color: var(--dark); line-height: 1;
+            font-size: 1.8rem; font-weight: 700; color: var(--dark); line-height: 1;
         }
-        .hours-card .days {
-            font-size: 0.85rem; color: var(--mid); margin-top: 6px; font-weight: 500;
-        }
+        .hours-card .h-days { font-size: 0.83rem; color: var(--mid); margin-top: 5px; font-weight: 500; }
 
-        /* CTA Buttons */
         .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
 
         .btn-fill {
             display: inline-flex; align-items: center; gap: 8px;
-            background-color: var(--terra); color: white !important;
-            text-decoration: none; padding: 14px 28px; border-radius: 50px;
-            font-weight: 600; font-size: 0.9rem; letter-spacing: 0.3px;
+            background: var(--terra); color: white !important;
+            text-decoration: none; padding: 13px 26px; border-radius: 50px;
+            font-weight: 600; font-size: 0.88rem;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 24px rgba(212, 95, 60, 0.28);
-            border: 2px solid transparent;
+            box-shadow: 0 6px 22px rgba(212,95,60,0.28);
         }
-        .btn-fill:hover {
-            background-color: var(--terra-dark); transform: translateY(-2px);
-            box-shadow: 0 12px 36px rgba(212, 95, 60, 0.38);
-        }
-        .btn-fill.sage {
-            background-color: var(--sage);
-            box-shadow: 0 6px 24px rgba(92, 122, 94, 0.28);
-        }
-        .btn-fill.sage:hover {
-            background-color: #4a6b4c;
-            box-shadow: 0 12px 36px rgba(92, 122, 94, 0.38);
-        }
+        .btn-fill:hover { background: var(--terra-dark); transform: translateY(-2px); color: white !important; }
+        .btn-fill.sage { background: var(--sage); box-shadow: 0 6px 22px rgba(92,122,94,0.28); }
+        .btn-fill.sage:hover { background: #4a6b4c; }
+
         .btn-outline {
             display: inline-flex; align-items: center; gap: 8px;
             background: transparent; color: var(--dark) !important;
-            text-decoration: none; padding: 14px 28px; border-radius: 50px;
-            font-weight: 600; font-size: 0.9rem;
-            border: 2px solid var(--cream-dark);
-            transition: all 0.3s ease;
+            text-decoration: none; padding: 13px 26px; border-radius: 50px;
+            font-weight: 600; font-size: 0.88rem;
+            border: 2px solid var(--cream-dark); transition: all 0.3s ease;
         }
-        .btn-outline:hover {
-            border-color: var(--terra); color: var(--terra) !important;
-            transform: translateY(-2px);
-        }
+        .btn-outline:hover { border-color: var(--terra); color: var(--terra) !important; transform: translateY(-2px); }
 
-        /* Hero right - Swiper */
+        /* ============================================================
+           VANILLA JS SLIDESHOW  (same reliable logic as original site)
+        ============================================================ */
         .hero-right { position: relative; z-index: 2; }
 
-        .swiper-hero {
-            border-radius: 32px; overflow: hidden; height: 520px;
-            box-shadow: 0 30px 80px rgba(44, 36, 22, 0.18);
-        }
-        .swiper-hero .swiper-slide img {
-            width: 100%; height: 100%; object-fit: cover;
-        }
-        .swiper-pagination-bullet {
-            background: white !important; opacity: 0.55 !important;
-        }
-        .swiper-pagination-bullet-active {
-            background: var(--terra) !important; opacity: 1 !important;
+        .slideshow-outer {
+            position: relative;
+            border-radius: 32px;
+            overflow: hidden;
+            height: 520px;
+            box-shadow: 0 28px 70px rgba(44,36,22,0.18);
+            background: var(--cream-dark);
         }
 
-        /* Floating badge on carousel */
+        /* All frames stacked, faded out by default */
+        .slide-frame {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .slide-frame.active { opacity: 1; }
+
+        .slide-frame img {
+            width: 100%; height: 100%;
+            object-fit: cover; display: block;
+        }
+
+        /* Dot indicators */
+        .slide-dots {
+            position: absolute; bottom: 18px; left: 50%;
+            transform: translateX(-50%);
+            display: flex; gap: 8px; z-index: 10;
+        }
+        .slide-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: rgba(255,255,255,0.5); cursor: pointer;
+            transition: all 0.3s ease; border: none; padding: 0;
+        }
+        .slide-dot.active { background: white; width: 22px; border-radius: 4px; }
+
+        /* Floating badge */
         .carousel-badge {
-            position: absolute; bottom: 28px; left: -22px; z-index: 10;
+            position: absolute; bottom: 26px; left: -20px; z-index: 20;
             background: white; border-radius: 16px;
-            padding: 16px 20px;
-            box-shadow: 0 10px 40px rgba(44, 36, 22, 0.15);
+            padding: 14px 18px;
+            box-shadow: 0 10px 36px rgba(44,36,22,0.14);
             display: flex; align-items: center; gap: 12px;
         }
         .cb-icon {
-            width: 40px; height: 40px; border-radius: 12px;
+            width: 38px; height: 38px; border-radius: 11px;
             background: var(--gold-light);
-            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
         }
-        .cb-text .num {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem; font-weight: 700; color: var(--dark); line-height: 1;
-        }
-        .cb-text .sub { font-size: 0.73rem; color: var(--mid); margin-top: 2px; }
+        .cb-text .cb-num { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--dark); line-height: 1; }
+        .cb-text .cb-sub { font-size: 0.7rem; color: var(--mid); margin-top: 2px; }
 
         /* ============================================================
-           SHARED SECTION UTILITIES
+           SECTION UTILITIES
         ============================================================ */
-        .section-wrap { padding: 100px 60px; }
-
         .section-tag {
-            display: inline-block;
-            background-color: var(--terra-light); color: var(--terra-dark);
-            padding: 5px 16px; border-radius: 50px;
-            font-size: 0.72rem; font-weight: 700;
-            letter-spacing: 1.8px; text-transform: uppercase; margin-bottom: 14px;
+            display: inline-block; padding: 5px 16px; border-radius: 50px;
+            font-size: 0.71rem; font-weight: 700;
+            letter-spacing: 1.8px; text-transform: uppercase; margin-bottom: 12px;
+            background: var(--terra-light); color: var(--terra-dark);
         }
-        .section-tag.sage { background: var(--sage-light); color: var(--sage); }
-        .section-tag.gold { background: var(--gold-light); color: #7A5A00; }
-        .section-tag.white { background: rgba(255,255,255,0.2); color: rgba(255,255,255,0.85); }
+        .section-tag.sage  { background: var(--sage-light); color: var(--sage); }
+        .section-tag.gold  { background: var(--gold-light);  color: #7A5A00; }
+        .section-tag.white { background: rgba(255,255,255,0.18); color: rgba(255,255,255,0.85); }
 
-        .section-heading {
-            font-size: clamp(1.8rem, 2.8vw, 2.8rem);
-            font-weight: 900; margin-bottom: 18px;
-        }
+        .section-heading { font-size: clamp(1.8rem, 2.6vw, 2.7rem); font-weight: 900; margin-bottom: 16px; }
 
         /* ============================================================
            PHILOSOPHY SECTION
         ============================================================ */
-        .philosophy-wrap {
-            padding: 0 40px 100px;
-        }
+        .philosophy-wrap { padding: 0 40px 90px; }
+
         .philosophy-card {
-            background: white; border-radius: 40px;
-            padding: 80px 70px;
-            box-shadow: 0 20px 60px rgba(44, 36, 22, 0.05);
-            display: grid;
-            grid-template-columns: 1fr 1.6fr;
-            gap: 70px; align-items: start;
+            background: white; border-radius: 38px;
+            padding: 75px 65px;
+            box-shadow: 0 18px 55px rgba(44,36,22,0.05);
+            display: grid; grid-template-columns: 1fr 1.6fr;
+            gap: 65px; align-items: start;
         }
-        .philosophy-image-wrap { position: relative; }
-        .philosophy-image-wrap::before {
+
+        .philo-img-wrap { position: relative; }
+        .philo-img-wrap::before {
             content: '';
-            position: absolute; top: -14px; left: -14px; right: 14px; bottom: 14px;
-            border: 3px solid var(--terra-light);
-            border-radius: 28px; z-index: 0;
+            position: absolute; top: -13px; left: -13px; right: 13px; bottom: 13px;
+            border: 3px solid var(--terra-light); border-radius: 26px; z-index: 0;
         }
-        .philosophy-image-wrap img {
-            width: 100%; border-radius: 22px;
-            box-shadow: 0 20px 50px rgba(44, 36, 22, 0.1);
-            position: relative; z-index: 1;
+        .philo-img-wrap img {
+            width: 100%; border-radius: 20px;
+            box-shadow: 0 18px 45px rgba(44,36,22,0.1);
+            position: relative; z-index: 1; display: block;
         }
 
         .big-quote {
-            font-family: 'Playfair Display', serif;
-            font-size: 8rem; line-height: 0.65;
-            color: var(--terra-light); display: block; margin-bottom: -10px;
-        }
-        .philosophy-text p {
-            color: var(--mid); font-size: 1.05rem;
-            line-height: 1.9; margin-bottom: 18px;
+            font-family: 'Playfair Display', serif; font-size: 7rem;
+            line-height: 0.65; color: var(--terra-light); display: block; margin-bottom: -8px;
         }
 
-        /* Hiring banner */
+        .philo-text p { color: var(--mid); font-size: 1.02rem; line-height: 1.9; margin-bottom: 16px; }
+
         .hiring-banner {
             background: linear-gradient(135deg, var(--terra) 0%, var(--terra-dark) 100%);
-            border-radius: 16px; padding: 20px 24px;
-            display: flex; align-items: flex-start; gap: 14px; margin-top: 28px;
+            border-radius: 15px; padding: 18px 22px;
+            display: flex; align-items: flex-start; gap: 13px; margin-top: 26px;
         }
-        .hiring-banner .hi-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
-        .hiring-banner p {
-            color: white !important; font-size: 0.95rem !important;
-            font-weight: 600 !important; margin: 0 !important; line-height: 1.6 !important;
-        }
+        .hiring-banner .hi-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
+        .hiring-banner p { color: white !important; font-size: 0.93rem !important; font-weight: 600 !important; margin: 0 !important; line-height: 1.6 !important; }
 
-        .cta-group { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+        .cta-group { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
 
         /* ============================================================
            FEE STRUCTURE
         ============================================================ */
-        .fees-section {
-            padding: 100px 60px;
-            background: var(--cream);
-        }
-        .fees-intro { text-align: center; margin-bottom: 50px; }
-        .fees-intro p { color: var(--mid); max-width: 480px; margin: 0 auto; }
+        .fees-section { padding: 90px 60px; }
 
-        .fees-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
+        .fees-intro { text-align: center; margin-bottom: 46px; }
+        .fees-intro p { color: var(--mid); max-width: 460px; margin: 0 auto; }
+
+        .fees-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+
         .fee-card {
-            background: white; border-radius: 28px;
-            padding: 36px;
-            box-shadow: 0 8px 40px rgba(44, 36, 22, 0.06);
+            background: white; border-radius: 26px; padding: 34px;
+            box-shadow: 0 8px 36px rgba(44,36,22,0.06);
             border-top: 5px solid var(--terra);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .fee-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(44, 36, 22, 0.1);
-        }
+        .fee-card:hover { transform: translateY(-7px); box-shadow: 0 18px 55px rgba(44,36,22,0.1); }
         .fee-card:nth-child(2) { border-top-color: var(--sage); }
         .fee-card:nth-child(3) { border-top-color: var(--gold); }
 
-        .fee-card-header {
-            display: flex; align-items: center; gap: 14px; margin-bottom: 10px;
-        }
+        .fee-card-header { display: flex; align-items: center; gap: 13px; margin-bottom: 8px; }
         .fee-card-icon {
-            width: 48px; height: 48px; border-radius: 14px;
-            background: var(--terra-light);
-            display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+            width: 46px; height: 46px; border-radius: 13px; background: var(--terra-light);
+            display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
         }
         .fee-card:nth-child(2) .fee-card-icon { background: var(--sage-light); }
         .fee-card:nth-child(3) .fee-card-icon { background: var(--gold-light); }
 
-        .fee-card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem; font-weight: 700; color: var(--dark);
-        }
-        .fee-card-sub {
-            font-size: 0.75rem; color: var(--faint); margin-bottom: 22px;
-            font-weight: 500; letter-spacing: 0.3px;
-        }
+        .fee-card-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--dark); }
+        .fee-card-sub { font-size: 0.73rem; color: var(--faint); margin-bottom: 20px; font-weight: 500; }
 
         .fee-row {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 14px 0;
-            border-bottom: 1px solid var(--cream-dark);
+            padding: 13px 0; border-bottom: 1px solid var(--cream-dark);
         }
         .fee-row:last-of-type { border-bottom: none; }
-        .fee-label { font-size: 0.9rem; color: var(--mid); font-weight: 500; }
-        .fee-amount {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.45rem; font-weight: 700; color: var(--terra);
-        }
+        .fee-label { font-size: 0.88rem; color: var(--mid); font-weight: 500; }
+        .fee-amount { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--terra); }
         .fee-card:nth-child(2) .fee-amount { color: var(--sage); }
         .fee-card:nth-child(3) .fee-amount { color: #8B6914; }
 
         .fee-notes {
-            background: white; border-radius: 20px;
-            padding: 26px 36px; margin-top: 32px;
-            box-shadow: 0 4px 20px rgba(44, 36, 22, 0.04);
-            display: flex; flex-wrap: wrap; gap: 20px;
+            background: white; border-radius: 18px; padding: 24px 32px; margin-top: 28px;
+            box-shadow: 0 4px 18px rgba(44,36,22,0.04);
+            display: flex; flex-wrap: wrap; gap: 18px;
             justify-content: space-between; align-items: center;
         }
-        .fee-note {
-            display: flex; align-items: center; gap: 10px;
-        }
-        .fee-note .dot {
-            width: 8px; height: 8px; border-radius: 50%;
-            background: var(--terra); flex-shrink: 0;
-        }
+        .fee-note { display: flex; align-items: center; gap: 10px; }
+        .fee-note .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--terra); flex-shrink: 0; }
         .fee-note:nth-child(2) .dot { background: var(--sage); }
-        .fee-note span { font-size: 0.9rem; color: var(--mid); font-weight: 500; }
+        .fee-note span { font-size: 0.88rem; color: var(--mid); font-weight: 500; }
 
         .subsidy-badge {
             background: linear-gradient(135deg, var(--sage) 0%, #4a6b4c 100%);
-            color: white; border-radius: 50px; padding: 10px 22px;
-            font-size: 0.88rem; font-weight: 600;
+            color: white; border-radius: 50px; padding: 10px 20px;
+            font-size: 0.86rem; font-weight: 600;
             display: flex; align-items: center; gap: 8px;
         }
 
-        .fees-links {
-            text-align: center; margin-top: 32px;
-            font-size: 1rem; color: var(--mid);
-        }
+        .fees-links { text-align: center; margin-top: 28px; font-size: 0.98rem; color: var(--mid); }
         .fees-links a { color: var(--terra); font-weight: 600; text-decoration: none; }
         .fees-links a:hover { text-decoration: underline; }
-        .fees-links a.sage-link { color: var(--sage); }
+        .fees-links a.sl { color: var(--sage); }
 
         /* ============================================================
            NEWS SECTION
         ============================================================ */
         .news-section { padding: 80px 60px; }
-
-        .news-track { display: flex; flex-direction: column; gap: 16px; margin-top: 36px; }
+        .news-track { display: flex; flex-direction: column; gap: 15px; margin-top: 32px; }
 
         .news-item {
-            background: white; border-radius: 20px;
-            padding: 24px 28px;
-            display: flex; align-items: flex-start; gap: 18px;
-            box-shadow: 0 4px 20px rgba(44, 36, 22, 0.04);
-            border-left: 5px solid var(--gold);
-            transition: transform 0.25s ease;
+            background: white; border-radius: 18px; padding: 22px 26px;
+            display: flex; align-items: flex-start; gap: 17px;
+            box-shadow: 0 4px 18px rgba(44,36,22,0.04);
+            border-left: 5px solid var(--gold); transition: transform 0.25s ease;
         }
-        .news-item:hover { transform: translateX(6px); }
+        .news-item:hover { transform: translateX(5px); }
         .news-item:nth-child(2) { border-left-color: var(--terra-light); }
 
         .news-icon {
-            width: 44px; height: 44px; border-radius: 13px;
+            width: 42px; height: 42px; border-radius: 12px;
             background: var(--gold-light);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;
         }
         .news-item:nth-child(2) .news-icon { background: var(--terra-light); }
-
-        .news-text { font-size: 0.98rem; color: var(--mid); line-height: 1.75; }
+        .news-text { font-size: 0.96rem; color: var(--mid); line-height: 1.75; }
 
         /* ============================================================
            REVIEWS SECTION
         ============================================================ */
-        .reviews-wrap { padding: 0 40px 100px; }
+        .reviews-wrap { padding: 0 40px 90px; }
 
         .reviews-card {
             background: linear-gradient(135deg, #2C2416 0%, #3D3020 100%);
-            border-radius: 40px; padding: 80px 70px;
+            border-radius: 38px; padding: 75px 65px;
             position: relative; overflow: hidden;
         }
         .reviews-card::before {
             content: '\201C';
             font-family: 'Playfair Display', serif;
-            font-size: 28rem; line-height: 0.75;
+            font-size: 26rem; line-height: 0.78;
             color: rgba(255,255,255,0.04);
-            position: absolute; top: -20px; left: 20px;
+            position: absolute; top: 0; left: 20px;
             pointer-events: none; user-select: none;
         }
 
-        .reviews-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 28px; margin-top: 48px;
-        }
+        .reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 44px; }
 
         .review-card {
             background: rgba(255,255,255,0.07);
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 24px; padding: 36px;
+            border-radius: 22px; padding: 34px;
         }
 
-        .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 18px; }
-
+        .stars { color: var(--gold); font-size: 0.88rem; margin-bottom: 16px; }
         .review-quote {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.08rem; font-style: italic;
-            color: rgba(255,255,255,0.82); line-height: 1.85; margin-bottom: 26px;
+            font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic;
+            color: rgba(255,255,255,0.82); line-height: 1.85; margin-bottom: 24px;
         }
-
-        .review-author { display: flex; align-items: center; gap: 14px; }
-
+        .review-author { display: flex; align-items: center; gap: 13px; }
         .author-avatar {
-            width: 44px; height: 44px; border-radius: 50%;
-            background: var(--terra-light);
+            width: 42px; height: 42px; border-radius: 50%; background: var(--terra-light);
             display: flex; align-items: center; justify-content: center;
-            font-size: 0.9rem; font-weight: 700; color: var(--terra-dark);
+            font-size: 0.85rem; font-weight: 700; color: var(--terra-dark);
         }
-        .author-name { font-weight: 600; color: white; font-size: 0.95rem; }
-        .author-meta { font-size: 0.76rem; color: rgba(255,255,255,0.42); margin-top: 2px; }
+        .author-name { font-weight: 600; color: white; font-size: 0.92rem; }
+        .author-meta { font-size: 0.74rem; color: rgba(255,255,255,0.4); margin-top: 2px; }
 
-        /* Hidden FB embeds — kept for plugin purposes */
+        /* Original FB embeds preserved in DOM (hidden) */
         .fb-embeds-preserved { display: none; }
 
         /* ============================================================
            CONTACT SECTION
         ============================================================ */
-        .contact-wrap { padding: 0 40px 80px; }
+        .contact-wrap { padding: 0 40px 70px; }
 
         .contact-card {
             background: linear-gradient(135deg, var(--terra) 0%, var(--terra-dark) 100%);
-            border-radius: 40px; padding: 80px 70px;
+            border-radius: 38px; padding: 75px 65px;
             display: grid; grid-template-columns: 1fr 1.2fr;
-            gap: 60px; align-items: center;
-            position: relative; overflow: hidden;
+            gap: 55px; align-items: center; position: relative; overflow: hidden;
         }
         .contact-card::before {
-            content: '';
-            position: absolute; width: 400px; height: 400px; border-radius: 50%;
-            background: rgba(255,255,255,0.07); top: -150px; right: -100px;
+            content: ''; position: absolute; width: 380px; height: 380px; border-radius: 50%;
+            background: rgba(255,255,255,0.07); top: -140px; right: -90px;
         }
         .contact-card::after {
-            content: '';
-            position: absolute; width: 280px; height: 280px; border-radius: 50%;
-            background: rgba(255,255,255,0.05); bottom: -80px; left: 100px;
+            content: ''; position: absolute; width: 260px; height: 260px; border-radius: 50%;
+            background: rgba(255,255,255,0.05); bottom: -70px; left: 90px;
         }
 
         .contact-left { position: relative; z-index: 2; }
@@ -528,46 +456,31 @@
         .contact-left p { color: rgba(255,255,255,0.7); margin-top: 12px; font-size: 1rem; }
 
         .contact-right { position: relative; z-index: 2; }
-
-        .contact-items { display: flex; flex-direction: column; gap: 18px; }
+        .contact-items { display: flex; flex-direction: column; gap: 16px; }
 
         .contact-item {
-            display: flex; align-items: flex-start; gap: 16px;
+            display: flex; align-items: flex-start; gap: 15px;
             background: rgba(255,255,255,0.1);
             border: 1px solid rgba(255,255,255,0.16);
-            backdrop-filter: blur(10px);
-            border-radius: 16px; padding: 18px 22px;
+            border-radius: 15px; padding: 16px 20px;
         }
         .ci-icon {
-            width: 42px; height: 42px; border-radius: 12px;
-            background: white;
+            width: 40px; height: 40px; border-radius: 11px; background: white;
             display: flex; align-items: center; justify-content: center;
             font-size: 1rem; color: var(--terra); flex-shrink: 0;
         }
-        .ci-label {
-            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.4px;
-            color: rgba(255,255,255,0.5); font-weight: 700;
-        }
-        .ci-value {
-            color: white; font-size: 0.93rem; font-weight: 500;
-            margin-top: 3px; line-height: 1.5;
-        }
+        .ci-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1.3px; color: rgba(255,255,255,0.5); font-weight: 700; }
+        .ci-value { color: white; font-size: 0.91rem; font-weight: 500; margin-top: 3px; line-height: 1.5; }
         .ci-value a { color: white; text-decoration: none; }
         .ci-value a:hover { text-decoration: underline; }
 
         /* ============================================================
            FOOTER
         ============================================================ */
-        .site-footer {
-            text-align: center; padding: 40px 60px 50px;
-            color: var(--faint); font-size: 0.85rem;
-        }
+        .site-footer { text-align: center; padding: 38px 60px 48px; color: var(--faint); font-size: 0.84rem; }
         .site-footer a { color: var(--terra); text-decoration: none; }
         .site-footer a:hover { text-decoration: underline; }
-        .site-footer .divider {
-            width: 40px; height: 2px;
-            background: var(--terra-light); margin: 16px auto;
-        }
+        .footer-divider { width: 38px; height: 2px; background: var(--terra-light); margin: 0 auto 18px; }
 
         /* ============================================================
            RESPONSIVE
@@ -576,41 +489,40 @@
             .fees-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 992px) {
-            .hero-section { grid-template-columns: 1fr; padding: 110px 30px 70px; gap: 40px; }
-            .philosophy-card { grid-template-columns: 1fr; padding: 50px 40px; gap: 40px; }
-            .philosophy-wrap { padding: 0 20px 70px; }
+            .hero-section { grid-template-columns: 1fr; padding: 110px 28px 65px; gap: 38px; }
+            .philosophy-card { grid-template-columns: 1fr; padding: 48px 36px; gap: 38px; }
+            .philosophy-wrap { padding: 0 18px 65px; }
             .fees-grid { grid-template-columns: 1fr; }
-            .fees-section { padding: 70px 30px; }
+            .fees-section { padding: 65px 28px; }
             .reviews-grid { grid-template-columns: 1fr; }
-            .reviews-wrap { padding: 0 20px 70px; }
-            .reviews-card { padding: 50px 40px; }
-            .contact-card { grid-template-columns: 1fr; padding: 50px 40px; }
-            .contact-wrap { padding: 0 20px 70px; }
-            .news-section { padding: 60px 30px; }
-            .section-wrap { padding: 70px 30px; }
-            .swiper-hero { height: 360px; }
+            .reviews-wrap { padding: 0 18px 65px; }
+            .reviews-card { padding: 48px 36px; }
+            .contact-card { grid-template-columns: 1fr; padding: 48px 36px; }
+            .contact-wrap { padding: 0 18px 65px; }
+            .news-section { padding: 55px 28px; }
+            .slideshow-outer { height: 340px; }
             .carousel-badge { display: none; }
         }
         @media (max-width: 768px) {
-            .site-nav { padding: 14px 24px; }
+            .site-nav { padding: 14px 22px; }
             .nav-links {
                 display: none; flex-direction: column;
                 background: white; position: absolute;
                 top: 100%; left: 0; right: 0;
-                padding: 20px 24px; gap: 4px;
-                box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+                padding: 18px 22px; gap: 4px;
+                box-shadow: 0 10px 36px rgba(0,0,0,0.1);
             }
             .nav-links.open { display: flex; }
             .hamburger { display: flex; }
-            .hero-section { padding: 95px 22px 60px; }
-            .brand-name { font-size: 0.92rem; }
+            .hero-section { padding: 90px 20px 55px; }
             .fees-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 
 <body>
-    <!-- Facebook SDK (original, preserved) -->
+
+    <!-- Facebook SDK (original, preserved exactly) -->
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0"
@@ -622,7 +534,7 @@
     <nav class="site-nav" id="siteNav">
         <div class="brand-name">Camrose Little Angels Daycare Society</div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#" class="active">Home <span class="sr-only">(current)</span></a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="gallery.html">Gallery</a></li>
         </ul>
@@ -638,51 +550,52 @@
         <div class="blob-1"></div>
         <div class="blob-2"></div>
 
-        <div class="hero-left" data-aos="fade-right" data-aos-duration="1100">
+        <!-- LEFT: Brand + Hours + CTAs -->
+        <div class="hero-left" data-aos="fade-right" data-aos-duration="1000">
             <span class="eyebrow">✨ Camrose, Alberta</span>
             <h1 class="hero-title">
                 Where Every Child<br>
                 <span class="accent">Grows &amp; Shines</span>
             </h1>
             <p class="hero-subtitle">
-                A nurturing home away from home — play-based learning in a safe, warm, and loving environment for children 0–7.
+                A nurturing home away from home — play-based learning in a safe, warm, and loving environment for children aged 0–7.
             </p>
-
             <div class="hours-card">
-                <div class="label">Hours of Operation</div>
-                <div class="time">6:00 AM – 6:30 PM</div>
-                <div class="days">Monday to Friday</div>
+                <div class="h-label">Hours of Operation</div>
+                <div class="h-time">6:00 AM – 6:30 PM</div>
+                <div class="h-days">Monday to Friday</div>
             </div>
-
             <div class="hero-ctas">
                 <a href="handbook2.pdf" target="_blank" class="btn-fill">📄 Parent Handbook</a>
                 <a href="https://berlin.timesavr.net/prod/registration.php?cid=2261" class="btn-fill sage">📝 Register Now</a>
             </div>
         </div>
 
-        <div class="hero-right" data-aos="fade-left" data-aos-duration="1100" data-aos-delay="150">
-            <div class="swiper swiper-hero mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="img/gallery/2.jpeg"  alt="Little Angels Daycare"></div>
-                    <div class="swiper-slide"><img src="img/gallery/3.jpeg"  alt="Little Angels Daycare"></div>
-                    <div class="swiper-slide"><img src="img/gallery/1.jpeg"  alt="Little Angels Daycare"></div>
-                    <div class="swiper-slide"><img src="img/gallery/4.jpeg"  alt="Little Angels Daycare"></div>
-                    <div class="swiper-slide"><img src="img/gallery/5.jpeg"  alt="Little Angels Daycare"></div>
-                    <div class="swiper-slide"><img src="img/gallery/6.jpeg"  alt="Little Angels Daycare"></div>
-                    <div class="swiper-slide"><img src="img/gallery/7.jpeg"  alt="Little Angels Daycare"></div>
-                    <div class="swiper-slide"><img src="img/gallery/8.jpeg"  alt="Little Angels Daycare"></div>
-                    <div class="swiper-slide"><img src="img/gallery/9.jpeg"  alt="Little Angels Daycare"></div>
-                    <div class="swiper-slide"><img src="img/gallery/10.jpeg" alt="Little Angels Daycare"></div>
-                    <div class="swiper-slide"><img src="img/gallery/11.jpeg" alt="Little Angels Daycare"></div>
-                    <div class="swiper-slide"><img src="img/gallery/12.jpeg" alt="Little Angels Daycare"></div>
-                </div>
-                <div class="swiper-pagination"></div>
+        <!-- RIGHT: Vanilla JS Slideshow — zero CDN deps, exact original paths -->
+        <div class="hero-right" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="150">
+            <div class="slideshow-outer" id="slideshowOuter">
+
+                <div class="slide-frame active"><img src="img/gallery/2.jpeg"  alt="Little Angels Daycare"></div>
+                <div class="slide-frame"><img src="img/gallery/3.jpeg"  alt="Little Angels Daycare"></div>
+                <div class="slide-frame"><img src="img/gallery/1.jpeg"  alt="Little Angels Daycare"></div>
+                <div class="slide-frame"><img src="img/gallery/4.jpeg"  alt="Little Angels Daycare"></div>
+                <div class="slide-frame"><img src="img/gallery/5.jpeg"  alt="Little Angels Daycare"></div>
+                <div class="slide-frame"><img src="img/gallery/6.jpeg"  alt="Little Angels Daycare"></div>
+                <div class="slide-frame"><img src="img/gallery/7.jpeg"  alt="Little Angels Daycare"></div>
+                <div class="slide-frame"><img src="img/gallery/8.jpeg"  alt="Little Angels Daycare"></div>
+                <div class="slide-frame"><img src="img/gallery/9.jpeg"  alt="Little Angels Daycare"></div>
+                <div class="slide-frame"><img src="img/gallery/10.jpeg" alt="Little Angels Daycare"></div>
+                <div class="slide-frame"><img src="img/gallery/11.jpeg" alt="Little Angels Daycare"></div>
+                <div class="slide-frame"><img src="img/gallery/12.jpeg" alt="Little Angels Daycare"></div>
+
+                <div class="slide-dots" id="slideDots"></div>
             </div>
+
             <div class="carousel-badge" data-aos="zoom-in" data-aos-delay="600">
                 <div class="cb-icon">🌟</div>
                 <div class="cb-text">
-                    <div class="num">Licensed</div>
-                    <div class="sub">& Regulated Care</div>
+                    <div class="cb-num">Licensed</div>
+                    <div class="cb-sub">& Regulated Care</div>
                 </div>
             </div>
         </div>
@@ -693,10 +606,10 @@
     ================================================================ -->
     <div class="philosophy-wrap" data-aos="fade-up" data-aos-duration="900">
         <div class="philosophy-card">
-            <div class="philosophy-image-wrap" data-aos="fade-right" data-aos-delay="100">
+            <div class="philo-img-wrap" data-aos="fade-right" data-aos-delay="100">
                 <img src="img.png" alt="Daycare illustration">
             </div>
-            <div class="philosophy-text" data-aos="fade-left" data-aos-delay="200">
+            <div class="philo-text" data-aos="fade-left" data-aos-delay="200">
                 <span class="section-tag">Our Philosophy</span>
                 <h2 class="section-heading">Children Are <em>Capable</em> Learners</h2>
                 <span class="big-quote">"</span>
@@ -711,7 +624,8 @@
                     environment where their social, emotional, physical and cognitive development is supported.
                     These environments are intended to promote positive self-identity and a sense of belonging.
                     Children will have open and flexible environments where playful exploration, problem solving,
-                    and creativity are encouraged and purposely planned by the educators.
+                    and creativity are encouraged and purposely planned by the educators. Environments will reflect
+                    a sense of belonging where children feel nurtured and supported.
                 </p>
                 <p>
                     Play is integral to children's learning and richly formative in their capacity for relationship. Play
@@ -719,12 +633,10 @@
                     through play and educators play a pivotal role in providing these positive play experiences, and
                     becoming co-learners, co-researchers, and co-imagineers of possibilities.
                 </p>
-
                 <div class="cta-group">
                     <a href="handbook2.pdf" target="_blank" class="btn-fill">📄 Parent Handbook</a>
                     <a href="https://berlin.timesavr.net/prod/registration.php?cid=2261" class="btn-outline">📝 Registration Form</a>
                 </div>
-
                 <div class="hiring-banner" data-aos="zoom-in" data-aos-delay="300">
                     <span class="hi-icon">📢</span>
                     <p>WE ARE HIRING! Looking for a Level 2 or above Early Childhood Educator. Apply via email or phone — contact details below.</p>
@@ -742,80 +654,44 @@
             <h2 class="section-heading">Fee Structure</h2>
             <p>Clear, straightforward pricing for quality childcare you can trust.</p>
         </div>
-
         <div class="fees-grid">
-            <!-- Daycare Rates -->
             <div class="fee-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="fee-card-header">
                     <div class="fee-card-icon">🍼</div>
                     <div class="fee-card-title">Daycare Rates</div>
                 </div>
                 <div class="fee-card-sub">Per month · 17 days or more</div>
-                <div class="fee-row">
-                    <span class="fee-label">Ages 0–4 Years</span>
-                    <span class="fee-amount">$925</span>
-                </div>
-                <div class="fee-row">
-                    <span class="fee-label">Ages 4–7 Years</span>
-                    <span class="fee-amount">$875</span>
-                </div>
+                <div class="fee-row"><span class="fee-label">Ages 0–4 Years</span><span class="fee-amount">$925</span></div>
+                <div class="fee-row"><span class="fee-label">Ages 4–7 Years</span><span class="fee-amount">$875</span></div>
             </div>
-
-            <!-- OSC Rates -->
             <div class="fee-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="fee-card-header">
                     <div class="fee-card-icon">🎒</div>
                     <div class="fee-card-title">OSC Rates</div>
                 </div>
                 <div class="fee-card-sub">Per month · 17 days or more</div>
-                <div class="fee-row">
-                    <span class="fee-label">Full Time (100+ hours)</span>
-                    <span class="fee-amount">$825</span>
-                </div>
-                <div class="fee-row">
-                    <span class="fee-label">Part Time</span>
-                    <span class="fee-amount">$600</span>
-                </div>
+                <div class="fee-row"><span class="fee-label">Full Time (100+ hours)</span><span class="fee-amount">$825</span></div>
+                <div class="fee-row"><span class="fee-label">Part Time</span><span class="fee-amount">$600</span></div>
             </div>
-
-            <!-- OSC During School -->
             <div class="fee-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="fee-card-header">
                     <div class="fee-card-icon">🏫</div>
                     <div class="fee-card-title">OSC During School</div>
                 </div>
                 <div class="fee-card-sub">Per month · 17 days or more</div>
-                <div class="fee-row">
-                    <span class="fee-label">Full Time (100+ hours)</span>
-                    <span class="fee-amount">$825</span>
-                </div>
-                <div class="fee-row">
-                    <span class="fee-label">50–99 hours</span>
-                    <span class="fee-amount">$600</span>
-                </div>
-                <div class="fee-row">
-                    <span class="fee-label">25–49 hours</span>
-                    <span class="fee-amount">$500</span>
-                </div>
+                <div class="fee-row"><span class="fee-label">Full Time (100+ hours)</span><span class="fee-amount">$825</span></div>
+                <div class="fee-row"><span class="fee-label">50–99 hours</span><span class="fee-amount">$600</span></div>
+                <div class="fee-row"><span class="fee-label">25–49 hours</span><span class="fee-amount">$500</span></div>
             </div>
         </div>
-
-        <!-- Notes bar -->
         <div class="fee-notes" data-aos="fade-up" data-aos-delay="100">
-            <div class="fee-note">
-                <div class="dot"></div>
-                <span>Minimum OSC hours: 25/month</span>
-            </div>
-            <div class="fee-note">
-                <div class="dot"></div>
-                <span>Overtime Rate (over 9 hrs 30 min): $10.00/hr</span>
-            </div>
+            <div class="fee-note"><div class="dot"></div><span>Minimum OSC hours: 25/month</span></div>
+            <div class="fee-note"><div class="dot"></div><span>Overtime Rate (over 9 hrs 30 min): $10.00/hr</span></div>
             <div class="subsidy-badge">✅ Subsidy Available for Eligible Parents</div>
         </div>
-
         <p class="fees-links">
             Browse our <a href="gallery.html">Gallery</a> for daycare images &nbsp;·&nbsp;
-            <a href="about.html" class="sage-link">About page</a> for more information
+            <a href="about.html" class="sl">About page</a> for more information
         </p>
     </section>
 
@@ -847,16 +723,11 @@
     <div class="reviews-wrap" data-aos="fade-up" data-aos-duration="900">
         <div class="reviews-card">
             <span class="section-tag white">What Parents Say</span>
-            <h2 class="section-heading" style="color: white; margin-top: 8px;">
-                Families Love Little Angels
-            </h2>
-
+            <h2 class="section-heading" style="color:white; margin-top:8px;">Families Love Little Angels</h2>
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="stars">★★★★★</div>
-                    <div class="review-quote">
-                        "We could not be happier with the care Victoria receives at Little Angels Daycare. The staff are friendly, educated, and truly dedicated to every child's development."
-                    </div>
+                    <div class="review-quote">"We could not be happier with the care Victoria receives at Little Angels Daycare. The staff are friendly, educated, and truly dedicated to every child's development."</div>
                     <div class="review-author">
                         <div class="author-avatar">LK</div>
                         <div>
@@ -865,12 +736,9 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="review-card">
                     <div class="stars">★★★★★</div>
-                    <div class="review-quote">
-                        "My son goes to Little Angels and he absolutely loves it. He gets so excited to go every day, and he even asks me to take him on the weekends. Great staff, friendly owners."
-                    </div>
+                    <div class="review-quote">"My son goes to Little Angels and he absolutely loves it. He gets so excited to go every day, and he even asks me to take him on the weekends. Great staff, friendly owners. I'm so happy we found them!"</div>
                     <div class="review-author">
                         <div class="author-avatar">NS</div>
                         <div>
@@ -881,20 +749,19 @@
                 </div>
             </div>
         </div>
-
-        <!-- Original FB embeds preserved (hidden) -->
+        <!-- Original FB embeds: kept in DOM so FB plugin still fires -->
         <div class="fb-embeds-preserved">
-            <div class="fb-post"
-                data-href="https://e.facebook.com/lisa.k.markovich/posts/10157828604761364"
-                data-width="700" data-show-text="true">
-                <blockquote cite="https://www.facebook.com/lisa.k.markovich/posts/10157828604761364"
-                    class="fb-xfbml-parse-ignore"></blockquote>
+            <div class="fb-post" data-href="https://e.facebook.com/lisa.k.markovich/posts/10157828604761364" data-width="700" data-show-text="true">
+                <blockquote cite="https://www.facebook.com/lisa.k.markovich/posts/10157828604761364" class="fb-xfbml-parse-ignore">
+                    <p>We could not be happier with the care Victoria receives at Little Angels Daycare. The staff are friendly, educated,...</p>
+                    Posted by <a href="#" role="button">Lisa Kingston</a> on&nbsp;<a href="https://www.facebook.com/lisa.k.markovich/posts/10157828604761364">Monday, 9 August 2021</a>
+                </blockquote>
             </div>
-            <div class="fb-post"
-                data-href="https://en-gb.facebook.com/nod.sawulabrown/posts/4413037648783127"
-                data-width="350" data-show-text="true">
-                <blockquote cite="https://www.facebook.com/nod.sawulabrown/posts/4413037648783127"
-                    class="fb-xfbml-parse-ignore"></blockquote>
+            <div class="fb-post" data-href="https://en-gb.facebook.com/nod.sawulabrown/posts/4413037648783127" data-width="350" data-show-text="true">
+                <blockquote cite="https://www.facebook.com/nod.sawulabrown/posts/4413037648783127" class="fb-xfbml-parse-ignore">
+                    <p>My son goes to Little Angels and he absolutely loves it. He get so excited to go everyday, and he even asks me to take him on the weekends. Great staff, friendly owners. I'm so happy we found them!</p>
+                    Posted by <a href="#" role="button">Nod Snowden</a> on&nbsp;<a href="https://www.facebook.com/nod.sawulabrown/posts/4413037648783127">Saturday, 17 July 2021</a>
+                </blockquote>
             </div>
         </div>
     </div>
@@ -906,46 +773,26 @@
         <div class="contact-card">
             <div class="contact-left">
                 <span class="section-tag white">Get in Touch</span>
-                <h2 class="section-heading" style="color: white; margin-top: 8px;">
-                    Visit or Contact Us
-                </h2>
+                <h2 class="section-heading" style="color:white; margin-top:8px;">Visit or Contact Us</h2>
                 <p>We'd love to hear from you. Stop by, give us a call, or drop us a message — we're always happy to connect with families.</p>
             </div>
             <div class="contact-right">
                 <div class="contact-items">
                     <div class="contact-item">
                         <div class="ci-icon">📍</div>
-                        <div>
-                            <div class="ci-label">Address</div>
-                            <div class="ci-value">4907 47 Street, Camrose, AB T4V 1J9</div>
-                        </div>
+                        <div><div class="ci-label">Address</div><div class="ci-value">4907 47 Street, Camrose, AB T4V 1J9</div></div>
                     </div>
                     <div class="contact-item">
                         <div class="ci-icon">✉️</div>
-                        <div>
-                            <div class="ci-label">Email</div>
-                            <div class="ci-value">
-                                <a href="mailto:littleangels@camrosecare.ca">littleangels@camrosecare.ca</a>
-                            </div>
-                        </div>
+                        <div><div class="ci-label">Email</div><div class="ci-value"><a href="mailto:littleangels@camrosecare.ca">littleangels@camrosecare.ca</a></div></div>
                     </div>
                     <div class="contact-item">
                         <div class="ci-icon">📞</div>
-                        <div>
-                            <div class="ci-label">Phone &amp; Director</div>
-                            <div class="ci-value">(780) 678-0701 · <strong>Faran Syed</strong></div>
-                        </div>
+                        <div><div class="ci-label">Phone &amp; Director</div><div class="ci-value">(780) 678-0701 · <strong>Faran Syed</strong></div></div>
                     </div>
                     <div class="contact-item">
                         <div class="ci-icon">📘</div>
-                        <div>
-                            <div class="ci-label">Facebook</div>
-                            <div class="ci-value">
-                                <a href="https://facebook.com/camroselittleangels.ca" target="_blank">
-                                    facebook.com/camroselittleangels.ca
-                                </a>
-                            </div>
-                        </div>
+                        <div><div class="ci-label">Facebook</div><div class="ci-value"><a href="https://facebook.com/camroselittleangels.ca" target="_blank">facebook.com/camroselittleangels.ca</a></div></div>
                     </div>
                 </div>
             </div>
@@ -956,50 +803,69 @@
          FOOTER
     ================================================================ -->
     <footer class="site-footer">
-        <div class="divider"></div>
-        <p>
-            <a href="https://linkedin.com/in/architsoni" target="_blank">
-                Click here to contact for a personal/professional website
-            </a>
-        </p>
-        <p style="margin-top: 8px; color: var(--faint);">
-            Designed by <a href="https://fb.com/templatemo" rel="nofollow">Template Mo</a>
-        </p>
+        <div class="footer-divider"></div>
+        <p><a href="https://linkedin.com/in/architsoni" target="_blank">Click here to contact for a personal/professional website</a></p>
+        <p style="margin-top:8px; color:var(--faint);">Designed by <a href="https://fb.com/templatemo" rel="nofollow">Template Mo</a></p>
     </footer>
 
     <!-- ================================================================
-         SCRIPTS
+         SCRIPTS — local deps first, then CDN only for AOS (scroll FX)
     ================================================================ -->
     <script src="js/jquery.min.js"></script>
     <script src="js/parallax.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
     <script>
-        // AOS — scroll animations
+        /* ---- AOS scroll animations ---- */
         AOS.init({ once: true, offset: 80, duration: 900 });
 
-        // Navbar scroll shrink
+        /* ---- Sticky navbar shrink on scroll ---- */
         window.addEventListener('scroll', function () {
-            const nav = document.getElementById('siteNav');
-            nav.classList.toggle('scrolled', window.scrollY > 50);
+            document.getElementById('siteNav').classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Mobile hamburger
+        /* ---- Mobile hamburger menu ---- */
         function toggleNav() {
             document.getElementById('navLinks').classList.toggle('open');
         }
 
-        // Swiper carousel
-        new Swiper(".mySwiper", {
-            loop: true,
-            effect: "fade",
-            autoplay: { delay: 2800, disableOnInteraction: false },
-            pagination: { el: ".swiper-pagination", clickable: true },
-            speed: 900
-        });
+        /* ----------------------------------------------------------------
+           SLIDESHOW — Pure vanilla JS + CSS fade transitions.
+           No Swiper, no CDN dependency. Exact same image paths as original.
+           All 12 images: img/gallery/1.jpeg through img/gallery/12.jpeg
+        ---------------------------------------------------------------- */
+        (function () {
+            var slides = document.querySelectorAll('.slide-frame');
+            var dotsContainer = document.getElementById('slideDots');
+            var current = 0;
+            var total = slides.length;
+            var dots = [];
+
+            /* Build clickable dots programmatically */
+            for (var i = 0; i < total; i++) {
+                var btn = document.createElement('button');
+                btn.className = 'slide-dot' + (i === 0 ? ' active' : '');
+                btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                (function (idx) {
+                    btn.addEventListener('click', function () { goTo(idx); });
+                })(i);
+                dotsContainer.appendChild(btn);
+                dots.push(btn);
+            }
+
+            function goTo(n) {
+                slides[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                current = (n + total) % total;
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+
+            /* Auto-advance every 2.8 seconds */
+            setInterval(function () { goTo(current + 1); }, 2800);
+        })();
     </script>
+
 </body>
 </html>
