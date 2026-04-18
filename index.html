@@ -2,412 +2,370 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1024" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Camrose Little Angels Daycare Society</title>
-<!--
-Next Level CSS Template
-https://templatemo.com/tm-532-next-level
--->
-    <link rel="stylesheet"  href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/templatemo-style.css" />
-	<style>
-	table, th, td {
-  border: 1px solid black;
-}
-* {box-sizing: border-box;}
-body {font-family: Verdana, sans-serif;}
-.mySlides {display: none;}
-img {vertical-align: middle;}
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
+    <style>
+      /* --- Modern Child-Friendly Theme --- */
+      body {
+        font-family: 'Nunito', sans-serif;
+        background-color: #fdfaf6; /* Soft cream background */
+        color: #5a5a5a;
+        line-height: 1.6;
+      }
 
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
+      h1, h2, h3, h4, h5, h6, .tm-brand-name {
+        font-family: 'Baloo 2', cursive;
+        font-weight: 800;
+        color: #ff6b81; /* Playful coral pink */
+      }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
+      .tm-text-secondary {
+        color: #4ecdc4 !important; /* Mint green headers */
+      }
 
-/* The dots/bullets/indicators */
-.dot {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
+      /* Container styling */
+      .content-card {
+        background-color: #ffffff;
+        border-radius: 24px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        padding: 40px;
+        margin-bottom: 30px;
+        transition: transform 0.3s ease;
+      }
+      .content-card:hover {
+        transform: translateY(-5px);
+      }
 
-.active2 {
-  background-color: #717171;
-}
+      /* Playful Buttons */
+      .btn-playful {
+        background-color: #ff6b81;
+        color: #ffffff !important;
+        border-radius: 50px;
+        padding: 14px 28px;
+        font-size: 1.1rem;
+        font-family: 'Baloo 2', cursive;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 20px rgba(255, 107, 129, 0.3);
+        border: none;
+      }
+      .btn-playful:hover {
+        background-color: #ff4760;
+        transform: scale(1.05);
+        text-decoration: none;
+      }
+      .btn-playful.alt {
+        background-color: #4ecdc4;
+        box-shadow: 0 6px 20px rgba(78, 205, 196, 0.3);
+        margin-left: 15px;
+      }
+      .btn-playful.alt:hover {
+        background-color: #3bbcb3;
+      }
 
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
+      /* Clean Tables */
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        margin-bottom: 30px;
+      }
+      th {
+        background-color: #ffe66d; /* Cheerful yellow */
+        color: #4a4a4a;
+        padding: 16px;
+        font-family: 'Baloo 2', cursive;
+        font-size: 1.2rem;
+        text-align: left;
+      }
+      td {
+        background-color: #ffffff;
+        padding: 14px 16px;
+        border-bottom: 1px solid #f1f1f1;
+        font-weight: 600;
+      }
+      tr:last-child td { border-bottom: none; }
 
-@-webkit-keyframes fade {
-  from {opacity: .4} s
-  to {opacity: 1}
-}
+      /* Navbar */
+      .tm-navbar {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        padding: 10px 25px;
+        margin-top: 15px;
+      }
+      .nav-link { 
+        font-family: 'Baloo 2', cursive;
+        font-size: 1.2rem;
+        color: #5a5a5a !important; 
+        transition: color 0.3s ease;
+      }
+      .nav-link:hover { color: #ff6b81 !important; }
 
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
+      /* Slideshow tweaks */
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      }
+      .slideshow-container img {
+        border-radius: 24px;
+        width: 100%;
+        object-fit: cover;
+      }
+      .dot {
+        height: 12px; width: 12px; margin: 0 5px;
+        background-color: #ddd; border-radius: 50%;
+        display: inline-block; transition: background-color 0.6s ease;
+      }
+      .active2, .dot:hover { background-color: #ff6b81; }
+      .fade { animation-name: fade; animation-duration: 1.5s; }
+      @keyframes fade { from {opacity: .4} to {opacity: 1} }
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
-}
-</style>
+      /* Custom Sections */
+      .tm-welcome-box {
+        background-color: #4ecdc4 !important;
+        border-radius: 24px;
+        color: white;
+        padding: 40px;
+      }
+      .news-section {
+        background-color: #ffe66d;
+        border-radius: 24px;
+        padding: 40px;
+        margin: 40px 10%;
+        box-shadow: 0 10px 30px rgba(255, 230, 109, 0.2);
+      }
+      .news-card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 15px;
+      }
+      .reviews-section {
+        background-color: #a8e6cf;
+        border-radius: 24px;
+        padding: 40px;
+        margin-top: 40px;
+      }
+      .contact-section {
+        background-color: #ff8b94;
+        border-radius: 24px;
+        padding: 40px;
+        color: white;
+        margin-top: 40px;
+      }
+    </style>
   </head>
+  
   <body>
-  <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0" nonce="TE16BVqE"></script>
-    <div class="container-fluid">
-      <div class="row tm-brand-row">
-        <div class="col-lg-4 col-10">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0" nonce="TE16BVqE"></script>
+    
+    <div class="container-fluid px-4">
+      <div class="row tm-brand-row mt-3">
+        <div class="col-lg-5 col-12">
           <div class="tm-brand-container">
-            <div class="tm-brand-texts">
-              <h2 class="text-uppercase tm-brand-name">Camrose Little Angels Daycare Society</h2>
-            </div>
+            <h2 class="tm-brand-name">Camrose Little Angels Daycare Society</h2>
           </div>
         </div>
-        <div class="col-lg-8 col-2 tm-nav-col">
-          <div class="tm-nav">
-            <nav class="navbar navbar-expand-lg navbar-light tm-navbar">
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto mr-0">
-                  <li class="nav-item active">
-                    <div class="tm-nav-link-highlight"></div>
-                    <a class="nav-link" href="#"
-                      >Home <span class="sr-only">(current)</span></a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <div class="tm-nav-link-highlight"></div>
-                    <a class="nav-link" href="about.html">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <div class="tm-nav-link-highlight"></div>
-                    <a class="nav-link" href="gallery.html">Gallery</a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
+        <div class="col-lg-7 col-12 tm-nav-col">
+          <nav class="navbar navbar-expand-lg navbar-light tm-navbar">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto mr-0">
+                <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="row tm-welcome-row mt-5">
+        <div class="col-12 tm-page-cols-container">
+          <div class="tm-page-col-left tm-welcome-box shadow-sm">
+            <h3 class="mb-4">Hours of Operation</h3>
+            <p style="font-size: 1.2rem;">
+              Regular hours of operation are from <br> 
+              <strong>6:00 a.m. to 6:30 p.m.</strong> <br>
+              Monday to Friday.
+            </p>
+          </div>
+          
+          <div class="tm-page-col-right">
+            <div class="slideshow-container">
+              <div class="mySlides fade"><img src="img/gallery/2.jpeg"></div>
+              <div class="mySlides fade"><img src="img/gallery/3.jpeg"></div>
+              <div class="mySlides fade"><img src="img/gallery/1.jpeg"></div>
+              <div class="mySlides fade"><img src="img/gallery/4.jpeg"></div>
+              <div class="mySlides fade"><img src="img/gallery/5.jpeg"></div>
+              <div class="mySlides fade"><img src="img/gallery/6.jpeg"></div>
+              <div class="mySlides fade"><img src="img/gallery/7.jpeg"></div>
+              <div class="mySlides fade"><img src="img/gallery/8.jpeg"></div>
+              <div class="mySlides fade"><img src="img/gallery/9.jpeg"></div>
+              <div class="mySlides fade"><img src="img/gallery/10.jpeg"></div>
+              <div class="mySlides fade"><img src="img/gallery/11.jpeg"></div>
+              <div class="mySlides fade"><img src="img/gallery/12.jpeg"></div>
+            </div>
+            <br>
+            <div style="text-align:center">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="row tm-welcome-row">
-        <div class="col-12 tm-page-cols-container">
-          <div class="tm-page-col-left tm-welcome-box tm-bg-primary">
-            <p class="tm-welcome-text">
-              <em><b>Hours of Operation</b>: Regular hours of operation are from <br> 6:00 a.m. to 6:30 p.m. <br>Monday to
-Friday.</em>
-            </p>
+      <section class="row mt-5 content-card">
+        <div class="col-12">
+          <h2 class="tm-text-secondary mb-4">Our Philosophy</h2>
+          <p>
+            Camrose Little Angels Daycare Society believes that children are resourceful, capable and active learners whose learning, growth and development are profoundly influenced by the quality care and relationships they receive. It is every child's right to have an open, engaging, and responsive environment where they explore the world through play.
+          </p>
+          <p>
+            Camrose Little Angels Daycare Society provides children's experience in a safe and nurturing environment where their social, emotional, physical and cognitive development is supported. These environments are intended to promote positive self-identity and a sense of belonging.
+          </p>
+          <p class="mb-5">
+            Play is integral to children's learning and richly formative in their capacity for relationship. Play is the work of children. We believe that children experience the world through play and educators play a pivotal role in providing these positive play experiences, becoming co-learners, co-researchers, and co-imagineers of possibilities.
+          </p>
+          
+          <div class="text-center mb-5">
+            <a href="handbook2.pdf" target="_blank" class="btn-playful">See Parent Handbook</a>
+            <a href="https://berlin.timesavr.net/prod/registration.php?cid=2261" class="btn-playful alt">Registration Form</a>
           </div>
-          <div class="tm-page-col-right">
-		    <div class="slideshow-container">
 
-<div class="mySlides fade">
-  <div class="numbertext"></div>
-  <img src="img/gallery/2.jpeg" style="width:100%; max-width:600px">
-  <div class="text"></div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext"></div>
-  <img src="img/gallery/3.jpeg" style="width:100%; max-width:600px">
-  <div class="text"></div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext"></div>
-  <img src="img/gallery/1.jpeg" style="width:100%; max-width:400px">
-  <div class="text"></div>
-</div>
-<div class="mySlides fade">
-  <div class="numbertext"></div>
-  <img src="img/gallery/4.jpeg" style="width:100%; max-width:400px">
-  <div class="text"></div>
-</div>
-<div class="mySlides fade">
-  <div class="numbertext"></div>
-  <img src="img/gallery/5.jpeg" style="width:100%; max-width:400px">
-  <div class="text"></div>
-</div>
-<div class="mySlides fade">
-  <div class="numbertext"></div>
-  <img src="img/gallery/6.jpeg" style="width:100%; max-width:600px">
-  <div class="text"></div>
-</div>
-<div class="mySlides fade">
-  <div class="numbertext"></div>
-  <img src="img/gallery/7.jpeg" style="width:100%; max-width:300px">
-  <div class="text"></div>
-</div>
-<div class="mySlides fade">
-  <div class="numbertext"></div>
-  <img src="img/gallery/8.jpeg" style="width:100%; max-width:400px">
-  <div class="text"></div>
-</div>
-<div class="mySlides fade">
-  <div class="numbertext"></div>
-  <img src="img/gallery/9.jpeg" style="width:100%; max-width:400px">
-  <div class="text"></div>
-</div>
-<div class="mySlides fade">
-  <div class="numbertext"></div>
-  <img src="img/gallery/10.jpeg" style="width:100%; max-width:400px">
-  <div class="text"></div>
-</div>
-<div class="mySlides fade">
-  <div class="numbertext"></div>
-  <img src="img/gallery/11.jpeg" style="width:100%; max-width:400px">
-  <div class="text"></div>
-</div>
-<div class="mySlides fade">
-  <div class="numbertext"></div>
-  <img src="img/gallery/12.jpeg" style="width:100%; max-width:400px">
-  <div class="text"></div>
-</div>
-</div>
-<br>
-
-<div style="text-align:center">
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span>
- <span class="dot"></span>
- <span class="dot"></span> 
- <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span>
- <span class="dot"></span>
- <span class="dot"></span> 
- <span class="dot"></span>
- <span class="dot"></span> 
-
-</div>
-          </div>
-        </div>
-      </div>
-
-      <section class="row tm-pt-4 tm-pb-6">
-        <div class="col-12 tm-page-cols-container">
-		<div class="tm-page-col-left tm-welcome-box tm-bg-primary" style="background-color:white">
-              <em><img src="img.png"></em>
-          </div>
-          <div class="tm-page-col-right">
-            <h2 class="tm-text-secondary tm-mb-5">
-              Our Philosophy
-            </h2>
-            <p class="tm-mb-6">
-              Camrose Little Angels Daycare Society believes that children are resourceful, capable and active learners
-whose learning, growth and development are profoundly influenced by the quality care and
-relationships they receive. It is every child's right to have an open, engaging, and responsive
-environment where they explore the world through play.<br><br>
-Camrose Little Angels Daycare Society provides children's experience in a safe and nurturing
-environment where their social, emotional, physical and cognitive development is supported.
-These environments are intended to promote positive self-identity and a sense of belonging.
-Children will have open and flexible environments where playful exploration, problem solving,
-and creativity are encouraged and purposely planned by the educators. Environments will reflect
-a sense of belonging where children feel nurtured and supported.
-            </p>
-            <p class="mb-0">
-           	  Play is integral to children's learning and richly formative in their capacity for relationship. Play
-is the work of children. Camrose Little Angels Daycare Society believes that children experience the world
-through play and educators play a pivotal role in providing these positive play experiences, and
-becoming co-learners, co-researchers, and co-imagineers of possibilities.
-<br>
-<br>
-<span style="background-color:red; color:white; padding:20px"><a href="handbook2.pdf" target="_blank" style="color:white">SEE PARENT HANDBOOK</a></span>
-<span style="background-color:red; color:white; padding:20px; margin-left:20px"><a href="https://berlin.timesavr.net/prod/registration.php?cid=2261" style="color:white">REGISTRATION FORM</a></span>
-            </p>
-         <br><br>
-<p style="color:red">WE ARE HIRING!! Looking for a Level 2 or above Early Childhood Educator. Apply via email or phone, contact details below.</p>
-       </div> </div>
-      </section>
-	  <section class="row tm-pt-4 tm-pb-6">
-        <div class="col-12 tm-page-cols-container">
-		<div class="tm-page-col-left tm-welcome-box tm-bg-primary" style="background-color:white; margin-top:-300px"> 
-          </div>
-          <div class="tm-page-col-right">
-			<p style="text-align:center; background-color:pink; "><u>Fee Structure</u></p>
-			  <br>
-			  <table style="width:100%">
- <p>Daycare Rates <br></p> <table><thead>
-    <th bgcolor="lightgreen">Child Age</th>
-    <th bgcolor="yellow">Fee per Month (17 days or more)</th>
-  </thead>
-  <tbody>
-  <tr>
-    <td bgcolor="lightgreen">0-4 Years</td>
-    <td bgcolor="yellow">$925</td>
-  </tr>
-   <tr>
-    <td bgcolor="lightgreen">4-7 Years</td>
-    <td bgcolor="yellow">$875</td>
-  </tr>
-  </tbody>
-</table>
-<p>OSC Rates<br></p>
-<table><thead>
-    <th bgcolor="lightgreen">Time</th>
-    <th bgcolor="yellow">Fee per Month (17 days or more)</th>
-  </thead>
-  <tbody>
-  <tr>
-    <td bgcolor="lightgreen">Full Time (100+ hours)</td>
-    <td bgcolor="yellow">$825</td>
-  </tr>
-   <tr>
-    <td bgcolor="lightgreen">Part Time</td>
-    <td bgcolor="yellow">$600</td>
-  </tr>
-  </tbody>
-</table>
-				  <p>OSC Rates DURING SCHOOL<br></p>
-<table><thead>
-    <th bgcolor="lightgreen">Time</th>
-    <th bgcolor="yellow">Fee per Month (17 days or more)</th>
-  </thead>
-  <tbody>
-  <tr>
-    <td bgcolor="lightgreen">Full Time (100+ hours)</td>
-    <td bgcolor="yellow">$825</td>
-  </tr>
-   <tr>
-    <td bgcolor="lightgreen">50-99 hours</td>
-    <td bgcolor="yellow">$600</td>
-  </tr>
-	  <tr>
-    <td bgcolor="lightgreen">25-49 hours</td>
-    <td bgcolor="yellow">$500</td>
-	  </tr>
-  </tbody>
-</table>
-				  <br>Minimum OSC hours are 25/month.<br>
-<br> Overtime Rate (more than 9 hrs 30 mins) = $10.00/hr<br><br>
-
-<p style="text-align:center; background-color:pink; "><b>Subsidy available for eligible parents. <b></p><br><br>
-	  <p style="margin-top:-50px">Check out our <a href="gallery.html">Gallery</a> for images of Daycare <br>
-		  Check out our <a href="about.html">About page</a> for more information.</p>
-			 
+          <div class="alert alert-warning text-center" role="alert" style="border-radius: 15px; font-weight: bold; color: #d35400;">
+            🎉 WE ARE HIRING!! Looking for a Level 2 or above Early Childhood Educator. Apply via email or phone below.
           </div>
         </div>
       </section>
-	  
-      <section style="background-color:rgb(255, 97, 124); padding:20px; margin-left:10%; margin-right:10%">
-        <h5 style="background-color:white; padding:12px; text-align:center; color: red;">NEWS</h5><br><br>
-        <div>
-            <div style="background-color:white; padding:12px; text-align:left">Please Note that BRSD Bussing Division does not have any bus stops near our daycare and we do not provide bussing to and from the schools.</div><br>
-            <div style="background-color:white; padding:12px; text-align:left">Please mail any feedback.</div>
-        </div>
-        </section><br><br>
 
-	  <section style="background-color:#add8ff; padding:20px">
-	  <h5 style="background-color:white; padding:12px; text-align:center;">REVIEWS</h5><br><br>
-	  <div class="fb-post" style="margin:10px" data-href="https://e.facebook.com/lisa.k.markovich/posts/10157828604761364" data-width="700" data-show-text="true"><blockquote cite="https://www.facebook.com/lisa.k.markovich/posts/10157828604761364" class="fb-xfbml-parse-ignore"><p>We could not be happier with the care Victoria receives at Little Angels Daycare.  The staff are friendly, educated,...</p>Posted by <a href="#" role="button">Lisa Kingston</a> on&nbsp;<a href="https://www.facebook.com/lisa.k.markovich/posts/10157828604761364">Monday, 9 August 2021</a></blockquote></div>
-	  <div class="fb-post" style="margin:10px" data-href="https://en-gb.facebook.com/nod.sawulabrown/posts/4413037648783127" data-width="350" data-show-text="true"><blockquote cite="https://www.facebook.com/nod.sawulabrown/posts/4413037648783127" class="fb-xfbml-parse-ignore"><p>My son goes to Little Angels and he absolutely loves it. He get so excited to go everyday, and he even asks me to take him on the weekends. Great staff, friendly owners. I’m so happy we found them!</p>Posted by <a href="#" role="button">Nod Snowden</a> on&nbsp;<a href="https://www.facebook.com/nod.sawulabrown/posts/4413037648783127">Saturday, 17 July 2021</a></blockquote></div>
-	  </section>
-	  <br><br>
-	  
-      <!-- row -->
+      <section class="row content-card">
+        <div class="col-12">
+          <h2 class="text-center mb-4" style="color: #ff6b81;">Fee Structure</h2>
+          
+          <h4 class="mt-4">Daycare Rates</h4>
+          <table>
+            <thead>
+              <tr><th>Child Age</th><th>Fee per Month (17 days or more)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0-4 Years</td><td>$925</td></tr>
+              <tr><td>4-7 Years</td><td>$875</td></tr>
+            </tbody>
+          </table>
 
-      <!-- Call to Action -->
-      <section class="row" id="tmCallToAction" style="background-color:greenyellow; ">
-        <div class="col-12 tm-page-cols-container tm-call-to-action-col">
-          <div class="tm-page-col-right">
-            <div class="tm-call-to-action-box" style="background-color:white">
-              <div class="tm-call-to-action-text">
-                <h3 class="tm-call-to-action-title">
-                  Contact
-                </h3>
-                <p class="tm-call-to-action-description">
-				4907 47 street Camrose Ab T4V 1J9
-				littleangels@camrosecare.ca <br>
-				(780) 678-0701 - <span style="color:red">Faran Syed (Director)</span><br>
-        
-				<a href="https://facebook.com/camroselittleangels.ca"> facebook.com/camroselittleangels.ca</a>
-                </p>
-              </div>
-            </div>
+          <h4 class="mt-5">OSC Rates</h4>
+          <table>
+            <thead>
+              <tr><th>Time</th><th>Fee per Month (17 days or more)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Full Time (100+ hours)</td><td>$825</td></tr>
+              <tr><td>Part Time</td><td>$600</td></tr>
+            </tbody>
+          </table>
+
+          <h4 class="mt-5">OSC Rates DURING SCHOOL</h4>
+          <table>
+            <thead>
+              <tr><th>Time</th><th>Fee per Month (17 days or more)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Full Time (100+ hours)</td><td>$825</td></tr>
+              <tr><td>50-99 hours</td><td>$600</td></tr>
+              <tr><td>25-49 hours</td><td>$500</td></tr>
+            </tbody>
+          </table>
+
+          <div class="text-center mt-4">
+            <p><strong>Minimum OSC hours are 25/month.</strong></p>
+            <p>Overtime Rate (more than 9 hrs 30 mins) = $10.00/hr</p>
+            <p class="mt-3" style="font-size: 1.2rem; color: #4ecdc4; font-family: 'Baloo 2', cursive;"><b>Subsidy available for eligible parents.</b></p>
           </div>
         </div>
       </section>
-      <!-- Page footer -->
-      <footer class="row tm-page-footer">
+
+      <section class="news-section">
+        <h2 class="text-center mb-4" style="color: #4a4a4a;">Important News</h2>
+        <div class="news-card">
+          <i class="fas fa-bus mr-2" style="color: #ff6b81;"></i> Please Note that BRSD Bussing Division does not have any bus stops near our daycare and we do not provide bussing to and from the schools.
+        </div>
+        <div class="news-card">
+          <i class="fas fa-envelope mr-2" style="color: #4ecdc4;"></i> Please mail any feedback.
+        </div>
+      </section>
+
+      <section class="reviews-section text-center">
+        <h2 class="mb-5" style="color: #2c3e50;">Parent Reviews</h2>
+        <div class="d-flex justify-content-center flex-wrap">
+          <div class="fb-post m-3" data-href="https://e.facebook.com/lisa.k.markovich/posts/10157828604761364" data-width="500" data-show-text="true"></div>
+          <div class="fb-post m-3" data-href="https://en-gb.facebook.com/nod.sawulabrown/posts/4413037648783127" data-width="500" data-show-text="true"></div>
+        </div>
+      </section>
+
+      <section class="contact-section text-center">
+        <h2 class="mb-4 text-white">Contact Us</h2>
+        <p style="font-size: 1.2rem;">
+          <i class="fas fa-map-marker-alt mr-2"></i> 4907 47 street Camrose Ab T4V 1J9<br><br>
+          <i class="fas fa-envelope mr-2"></i> littleangels@camrosecare.ca <br><br>
+          <i class="fas fa-phone mr-2"></i> (780) 678-0701 - <strong>Faran Syed (Director)</strong><br><br>
+          <i class="fab fa-facebook mr-2"></i> <a href="https://facebook.com/camroselittleangels.ca" style="color: white; text-decoration: underline;">facebook.com/camroselittleangels.ca</a>
+        </p>
+      </section>
+
+      <footer class="row tm-page-footer mt-5 mb-4 text-center">
         <p class="col-12 tm-copyright-text mb-0">
-		<a href="https://linkedin.com/in/architsoni">Click here to contact for a personal/professional website</a><br>
-          Designed by
-          <a href="https://fb.com/templatemo" rel="nofollow" class="tm-copyright-link">Template Mo</a>
+          <a href="https://linkedin.com/in/architsoni" style="color: #4ecdc4;">Click here to contact for a personal/professional website</a><br>
+          Designed by <a href="https://fb.com/templatemo" rel="nofollow" class="tm-copyright-link" style="color: #ff6b81;">Template Mo</a>
         </p>
       </footer>
     </div>
 
-<script>
-var slideIndex = 0;
-showSlides();
-
-function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active2", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active2";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
-</script>
-
+    <script>
+      var slideIndex = 0;
+      showSlides();
+      function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active2", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active2";
+        setTimeout(showSlides, 3000); // Change image every 3 seconds
+      }
+    </script>
     <script src="js/jquery.min.js"></script>
-    <script src="js/parallax.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
