@@ -1,329 +1,1005 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Camrose Little Angels Daycare Society</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+    <!-- Original site dependencies (unchanged) -->
     <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/templatemo-style.css" />
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Premium fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Swiper & AOS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-      /* --- Modern Child-Friendly Theme Overrides --- */
-      body {
-        font-family: 'Nunito', sans-serif;
-        background-color: #fdfaf6; 
-        color: #5a5a5a;
-        line-height: 1.6;
-        overflow-x: hidden;
-      }
+        /* ============================================================
+           ROOT & RESET
+        ============================================================ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      h1, h2, h3, h4, h5, h6, .tm-brand-name {
-        font-family: 'Baloo 2', cursive;
-        font-weight: 800;
-        color: #ff6b81; 
-      }
+        :root {
+            --cream:       #FAF6F0;
+            --cream-dark:  #F0E9DF;
+            --terra:       #D45F3C;
+            --terra-light: #F2B8A8;
+            --terra-dark:  #B84D2E;
+            --sage:        #5C7A5E;
+            --sage-light:  #B8D4BA;
+            --gold:        #E8A838;
+            --gold-light:  #FDE9B2;
+            --dark:        #2C2416;
+            --mid:         #6E5E4E;
+            --faint:       #9B8B7B;
+        }
 
-      .tm-text-secondary { color: #4ecdc4 !important; }
+        html { scroll-behavior: smooth; }
 
-      /* Modern Cards & Containers */
-      .content-card {
-        background-color: #ffffff;
-        border-radius: 24px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-        padding: 40px;
-        transition: transform 0.3s ease;
-      }
-      .content-card:hover { transform: translateY(-5px); }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-      /* Playful Buttons */
-      .btn-playful {
-        background-color: #ff6b81;
-        color: #ffffff !important;
-        border-radius: 50px;
-        padding: 14px 28px;
-        font-size: 1.1rem;
-        font-family: 'Baloo 2', cursive;
-        text-decoration: none;
-        display: inline-block;
-        transition: all 0.3s ease;
-        box-shadow: 0 6px 20px rgba(255, 107, 129, 0.3);
-        border: none;
-        margin: 10px;
-      }
-      .btn-playful:hover {
-        background-color: #ff4760;
-        transform: scale(1.05);
-      }
-      .btn-playful.alt {
-        background-color: #4ecdc4;
-        box-shadow: 0 6px 20px rgba(78, 205, 196, 0.3);
-      }
-      .btn-playful.alt:hover { background-color: #3bbcb3; }
+        /* Subtle paper-like noise texture */
+        body::after {
+            content: '';
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9000;
+        }
 
-      /* Beautiful Modern Tables */
-      table {
-        width: 100%; border-collapse: separate; border-spacing: 0;
-        border-radius: 16px; overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); margin-bottom: 30px;
-        border: none !important;
-      }
-      th {
-        background-color: #ffe66d !important; color: #4a4a4a !important; padding: 16px !important;
-        font-family: 'Baloo 2', cursive; font-size: 1.2rem; text-align: left; border: none !important;
-      }
-      td {
-        background-color: #ffffff !important; padding: 14px 16px !important;
-        border-bottom: 1px solid #f1f1f1 !important; border-top: none !important; border-left: none !important; border-right: none !important; font-weight: 600;
-      }
-      tr:last-child td { border-bottom: none !important; }
+        /* ============================================================
+           TYPOGRAPHY
+        ============================================================ */
+        h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+        h4, h5, h6 { font-family: 'DM Sans', sans-serif; font-weight: 600; }
 
-      /* Navbar */
-      .tm-navbar {
-        background-color: rgba(255, 255, 255, 0.95);
-        border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        padding: 10px 25px; margin-top: 15px;
-      }
-      .nav-link { 
-        font-family: 'Baloo 2', cursive; font-size: 1.2rem;
-        color: #5a5a5a !important; transition: color 0.3s ease;
-      }
-      .nav-link:hover { color: #ff6b81 !important; }
+        /* ============================================================
+           NAVBAR
+        ============================================================ */
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 18px 50px;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(250, 246, 240, 0.88);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(212, 95, 60, 0.1);
+            transition: all 0.35s ease;
+        }
+        .site-nav.scrolled {
+            padding: 12px 50px;
+            box-shadow: 0 6px 40px rgba(44, 36, 22, 0.08);
+        }
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900; font-size: 1.05rem;
+            color: var(--terra); max-width: 280px; line-height: 1.35;
+        }
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+        .nav-links a {
+            display: inline-block; padding: 8px 22px; border-radius: 50px;
+            font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.9rem;
+            color: var(--dark); text-decoration: none; letter-spacing: 0.2px;
+            transition: all 0.25s ease;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            background-color: var(--terra); color: white;
+        }
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; padding: 4px;
+        }
+        .hamburger span {
+            width: 24px; height: 2px; background: var(--dark);
+            border-radius: 2px; transition: all 0.3s;
+        }
 
-      /* Swiper Carousel (Replaces clunky old slider) */
-      .swiper { width: 100%; border-radius: 24px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-      .swiper-slide img { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; }
-      .swiper-pagination-bullet-active { background-color: #ff6b81 !important; }
+        /* ============================================================
+           HERO SECTION
+        ============================================================ */
+        .hero-section {
+            min-height: 100vh;
+            padding: 130px 60px 90px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px; align-items: center;
+            position: relative; overflow: hidden;
+        }
+        /* Ambient blob backgrounds */
+        .blob-1 {
+            position: absolute; width: 700px; height: 700px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,168,56,0.14) 0%, transparent 70%);
+            top: -200px; right: -150px; pointer-events: none;
+            animation: floatBlob 9s ease-in-out infinite;
+        }
+        .blob-2 {
+            position: absolute; width: 500px; height: 500px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(92,122,94,0.12) 0%, transparent 70%);
+            bottom: -80px; left: -100px; pointer-events: none;
+            animation: floatBlob 11s ease-in-out infinite reverse;
+        }
+        @keyframes floatBlob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33%       { transform: translate(30px, -25px) scale(1.04); }
+            66%       { transform: translate(-20px, 18px) scale(0.97); }
+        }
 
-      /* Specific Original Section Overrides */
-      .tm-welcome-box {
-        background-color: #4ecdc4 !important; border-radius: 24px; color: white; padding: 40px; box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
-      }
-      .news-section {
-        background-color: #ffe66d; border-radius: 24px; padding: 40px;
-        box-shadow: 0 10px 30px rgba(255, 230, 109, 0.2);
-      }
-      .news-card {
-        background-color: white; border-radius: 12px; padding: 20px; margin-bottom: 15px; color: #5a5a5a;
-      }
-      .reviews-section {
-        background-color: #a8e6cf; border-radius: 24px; padding: 40px;
-      }
-      .contact-section {
-        background-color: #ff8b94 !important; border-radius: 24px; padding: 40px; color: white;
-      }
-      .contact-section a { color: white; text-decoration: underline; }
+        .hero-left { position: relative; z-index: 2; }
+
+        .eyebrow {
+            display: inline-block;
+            background-color: var(--gold-light); color: #7A5A00;
+            padding: 6px 18px; border-radius: 50px;
+            font-size: 0.78rem; font-weight: 700;
+            letter-spacing: 1.8px; text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.4rem, 3.8vw, 3.8rem);
+            font-weight: 900; color: var(--dark); margin-bottom: 14px;
+        }
+        .hero-title .accent { color: var(--terra); font-style: italic; }
+
+        .hero-subtitle {
+            font-size: 1.05rem; color: var(--mid); font-weight: 400;
+            margin-bottom: 36px; max-width: 420px; line-height: 1.75;
+        }
+
+        /* Hours floating card */
+        .hours-card {
+            background: white; border-radius: 20px;
+            padding: 22px 28px; margin-bottom: 36px;
+            box-shadow: 0 8px 40px rgba(44, 36, 22, 0.07);
+            border-left: 5px solid var(--terra);
+            display: inline-block;
+        }
+        .hours-card .label {
+            font-size: 0.72rem; text-transform: uppercase;
+            letter-spacing: 1.8px; color: var(--faint); font-weight: 700; margin-bottom: 8px;
+        }
+        .hours-card .time {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem; font-weight: 700; color: var(--dark); line-height: 1;
+        }
+        .hours-card .days {
+            font-size: 0.85rem; color: var(--mid); margin-top: 6px; font-weight: 500;
+        }
+
+        /* CTA Buttons */
+        .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+        .btn-fill {
+            display: inline-flex; align-items: center; gap: 8px;
+            background-color: var(--terra); color: white !important;
+            text-decoration: none; padding: 14px 28px; border-radius: 50px;
+            font-weight: 600; font-size: 0.9rem; letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 24px rgba(212, 95, 60, 0.28);
+            border: 2px solid transparent;
+        }
+        .btn-fill:hover {
+            background-color: var(--terra-dark); transform: translateY(-2px);
+            box-shadow: 0 12px 36px rgba(212, 95, 60, 0.38);
+        }
+        .btn-fill.sage {
+            background-color: var(--sage);
+            box-shadow: 0 6px 24px rgba(92, 122, 94, 0.28);
+        }
+        .btn-fill.sage:hover {
+            background-color: #4a6b4c;
+            box-shadow: 0 12px 36px rgba(92, 122, 94, 0.38);
+        }
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: transparent; color: var(--dark) !important;
+            text-decoration: none; padding: 14px 28px; border-radius: 50px;
+            font-weight: 600; font-size: 0.9rem;
+            border: 2px solid var(--cream-dark);
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            border-color: var(--terra); color: var(--terra) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Hero right - Swiper */
+        .hero-right { position: relative; z-index: 2; }
+
+        .swiper-hero {
+            border-radius: 32px; overflow: hidden; height: 520px;
+            box-shadow: 0 30px 80px rgba(44, 36, 22, 0.18);
+        }
+        .swiper-hero .swiper-slide img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .swiper-pagination-bullet {
+            background: white !important; opacity: 0.55 !important;
+        }
+        .swiper-pagination-bullet-active {
+            background: var(--terra) !important; opacity: 1 !important;
+        }
+
+        /* Floating badge on carousel */
+        .carousel-badge {
+            position: absolute; bottom: 28px; left: -22px; z-index: 10;
+            background: white; border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: 0 10px 40px rgba(44, 36, 22, 0.15);
+            display: flex; align-items: center; gap: 12px;
+        }
+        .cb-icon {
+            width: 40px; height: 40px; border-radius: 12px;
+            background: var(--gold-light);
+            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+        }
+        .cb-text .num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem; font-weight: 700; color: var(--dark); line-height: 1;
+        }
+        .cb-text .sub { font-size: 0.73rem; color: var(--mid); margin-top: 2px; }
+
+        /* ============================================================
+           SHARED SECTION UTILITIES
+        ============================================================ */
+        .section-wrap { padding: 100px 60px; }
+
+        .section-tag {
+            display: inline-block;
+            background-color: var(--terra-light); color: var(--terra-dark);
+            padding: 5px 16px; border-radius: 50px;
+            font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 1.8px; text-transform: uppercase; margin-bottom: 14px;
+        }
+        .section-tag.sage { background: var(--sage-light); color: var(--sage); }
+        .section-tag.gold { background: var(--gold-light); color: #7A5A00; }
+        .section-tag.white { background: rgba(255,255,255,0.2); color: rgba(255,255,255,0.85); }
+
+        .section-heading {
+            font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+            font-weight: 900; margin-bottom: 18px;
+        }
+
+        /* ============================================================
+           PHILOSOPHY SECTION
+        ============================================================ */
+        .philosophy-wrap {
+            padding: 0 40px 100px;
+        }
+        .philosophy-card {
+            background: white; border-radius: 40px;
+            padding: 80px 70px;
+            box-shadow: 0 20px 60px rgba(44, 36, 22, 0.05);
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 70px; align-items: start;
+        }
+        .philosophy-image-wrap { position: relative; }
+        .philosophy-image-wrap::before {
+            content: '';
+            position: absolute; top: -14px; left: -14px; right: 14px; bottom: 14px;
+            border: 3px solid var(--terra-light);
+            border-radius: 28px; z-index: 0;
+        }
+        .philosophy-image-wrap img {
+            width: 100%; border-radius: 22px;
+            box-shadow: 0 20px 50px rgba(44, 36, 22, 0.1);
+            position: relative; z-index: 1;
+        }
+
+        .big-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem; line-height: 0.65;
+            color: var(--terra-light); display: block; margin-bottom: -10px;
+        }
+        .philosophy-text p {
+            color: var(--mid); font-size: 1.05rem;
+            line-height: 1.9; margin-bottom: 18px;
+        }
+
+        /* Hiring banner */
+        .hiring-banner {
+            background: linear-gradient(135deg, var(--terra) 0%, var(--terra-dark) 100%);
+            border-radius: 16px; padding: 20px 24px;
+            display: flex; align-items: flex-start; gap: 14px; margin-top: 28px;
+        }
+        .hiring-banner .hi-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+        .hiring-banner p {
+            color: white !important; font-size: 0.95rem !important;
+            font-weight: 600 !important; margin: 0 !important; line-height: 1.6 !important;
+        }
+
+        .cta-group { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+
+        /* ============================================================
+           FEE STRUCTURE
+        ============================================================ */
+        .fees-section {
+            padding: 100px 60px;
+            background: var(--cream);
+        }
+        .fees-intro { text-align: center; margin-bottom: 50px; }
+        .fees-intro p { color: var(--mid); max-width: 480px; margin: 0 auto; }
+
+        .fees-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .fee-card {
+            background: white; border-radius: 28px;
+            padding: 36px;
+            box-shadow: 0 8px 40px rgba(44, 36, 22, 0.06);
+            border-top: 5px solid var(--terra);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .fee-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(44, 36, 22, 0.1);
+        }
+        .fee-card:nth-child(2) { border-top-color: var(--sage); }
+        .fee-card:nth-child(3) { border-top-color: var(--gold); }
+
+        .fee-card-header {
+            display: flex; align-items: center; gap: 14px; margin-bottom: 10px;
+        }
+        .fee-card-icon {
+            width: 48px; height: 48px; border-radius: 14px;
+            background: var(--terra-light);
+            display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+        }
+        .fee-card:nth-child(2) .fee-card-icon { background: var(--sage-light); }
+        .fee-card:nth-child(3) .fee-card-icon { background: var(--gold-light); }
+
+        .fee-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem; font-weight: 700; color: var(--dark);
+        }
+        .fee-card-sub {
+            font-size: 0.75rem; color: var(--faint); margin-bottom: 22px;
+            font-weight: 500; letter-spacing: 0.3px;
+        }
+
+        .fee-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+        .fee-row:last-of-type { border-bottom: none; }
+        .fee-label { font-size: 0.9rem; color: var(--mid); font-weight: 500; }
+        .fee-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.45rem; font-weight: 700; color: var(--terra);
+        }
+        .fee-card:nth-child(2) .fee-amount { color: var(--sage); }
+        .fee-card:nth-child(3) .fee-amount { color: #8B6914; }
+
+        .fee-notes {
+            background: white; border-radius: 20px;
+            padding: 26px 36px; margin-top: 32px;
+            box-shadow: 0 4px 20px rgba(44, 36, 22, 0.04);
+            display: flex; flex-wrap: wrap; gap: 20px;
+            justify-content: space-between; align-items: center;
+        }
+        .fee-note {
+            display: flex; align-items: center; gap: 10px;
+        }
+        .fee-note .dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--terra); flex-shrink: 0;
+        }
+        .fee-note:nth-child(2) .dot { background: var(--sage); }
+        .fee-note span { font-size: 0.9rem; color: var(--mid); font-weight: 500; }
+
+        .subsidy-badge {
+            background: linear-gradient(135deg, var(--sage) 0%, #4a6b4c 100%);
+            color: white; border-radius: 50px; padding: 10px 22px;
+            font-size: 0.88rem; font-weight: 600;
+            display: flex; align-items: center; gap: 8px;
+        }
+
+        .fees-links {
+            text-align: center; margin-top: 32px;
+            font-size: 1rem; color: var(--mid);
+        }
+        .fees-links a { color: var(--terra); font-weight: 600; text-decoration: none; }
+        .fees-links a:hover { text-decoration: underline; }
+        .fees-links a.sage-link { color: var(--sage); }
+
+        /* ============================================================
+           NEWS SECTION
+        ============================================================ */
+        .news-section { padding: 80px 60px; }
+
+        .news-track { display: flex; flex-direction: column; gap: 16px; margin-top: 36px; }
+
+        .news-item {
+            background: white; border-radius: 20px;
+            padding: 24px 28px;
+            display: flex; align-items: flex-start; gap: 18px;
+            box-shadow: 0 4px 20px rgba(44, 36, 22, 0.04);
+            border-left: 5px solid var(--gold);
+            transition: transform 0.25s ease;
+        }
+        .news-item:hover { transform: translateX(6px); }
+        .news-item:nth-child(2) { border-left-color: var(--terra-light); }
+
+        .news-icon {
+            width: 44px; height: 44px; border-radius: 13px;
+            background: var(--gold-light);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; flex-shrink: 0;
+        }
+        .news-item:nth-child(2) .news-icon { background: var(--terra-light); }
+
+        .news-text { font-size: 0.98rem; color: var(--mid); line-height: 1.75; }
+
+        /* ============================================================
+           REVIEWS SECTION
+        ============================================================ */
+        .reviews-wrap { padding: 0 40px 100px; }
+
+        .reviews-card {
+            background: linear-gradient(135deg, #2C2416 0%, #3D3020 100%);
+            border-radius: 40px; padding: 80px 70px;
+            position: relative; overflow: hidden;
+        }
+        .reviews-card::before {
+            content: '\201C';
+            font-family: 'Playfair Display', serif;
+            font-size: 28rem; line-height: 0.75;
+            color: rgba(255,255,255,0.04);
+            position: absolute; top: -20px; left: 20px;
+            pointer-events: none; user-select: none;
+        }
+
+        .reviews-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 28px; margin-top: 48px;
+        }
+
+        .review-card {
+            background: rgba(255,255,255,0.07);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px; padding: 36px;
+        }
+
+        .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 18px; }
+
+        .review-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.08rem; font-style: italic;
+            color: rgba(255,255,255,0.82); line-height: 1.85; margin-bottom: 26px;
+        }
+
+        .review-author { display: flex; align-items: center; gap: 14px; }
+
+        .author-avatar {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: var(--terra-light);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.9rem; font-weight: 700; color: var(--terra-dark);
+        }
+        .author-name { font-weight: 600; color: white; font-size: 0.95rem; }
+        .author-meta { font-size: 0.76rem; color: rgba(255,255,255,0.42); margin-top: 2px; }
+
+        /* Hidden FB embeds — kept for plugin purposes */
+        .fb-embeds-preserved { display: none; }
+
+        /* ============================================================
+           CONTACT SECTION
+        ============================================================ */
+        .contact-wrap { padding: 0 40px 80px; }
+
+        .contact-card {
+            background: linear-gradient(135deg, var(--terra) 0%, var(--terra-dark) 100%);
+            border-radius: 40px; padding: 80px 70px;
+            display: grid; grid-template-columns: 1fr 1.2fr;
+            gap: 60px; align-items: center;
+            position: relative; overflow: hidden;
+        }
+        .contact-card::before {
+            content: '';
+            position: absolute; width: 400px; height: 400px; border-radius: 50%;
+            background: rgba(255,255,255,0.07); top: -150px; right: -100px;
+        }
+        .contact-card::after {
+            content: '';
+            position: absolute; width: 280px; height: 280px; border-radius: 50%;
+            background: rgba(255,255,255,0.05); bottom: -80px; left: 100px;
+        }
+
+        .contact-left { position: relative; z-index: 2; }
+        .contact-left .section-heading { color: white; }
+        .contact-left p { color: rgba(255,255,255,0.7); margin-top: 12px; font-size: 1rem; }
+
+        .contact-right { position: relative; z-index: 2; }
+
+        .contact-items { display: flex; flex-direction: column; gap: 18px; }
+
+        .contact-item {
+            display: flex; align-items: flex-start; gap: 16px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.16);
+            backdrop-filter: blur(10px);
+            border-radius: 16px; padding: 18px 22px;
+        }
+        .ci-icon {
+            width: 42px; height: 42px; border-radius: 12px;
+            background: white;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem; color: var(--terra); flex-shrink: 0;
+        }
+        .ci-label {
+            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.4px;
+            color: rgba(255,255,255,0.5); font-weight: 700;
+        }
+        .ci-value {
+            color: white; font-size: 0.93rem; font-weight: 500;
+            margin-top: 3px; line-height: 1.5;
+        }
+        .ci-value a { color: white; text-decoration: none; }
+        .ci-value a:hover { text-decoration: underline; }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        .site-footer {
+            text-align: center; padding: 40px 60px 50px;
+            color: var(--faint); font-size: 0.85rem;
+        }
+        .site-footer a { color: var(--terra); text-decoration: none; }
+        .site-footer a:hover { text-decoration: underline; }
+        .site-footer .divider {
+            width: 40px; height: 2px;
+            background: var(--terra-light); margin: 16px auto;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
+        @media (max-width: 1100px) {
+            .fees-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 992px) {
+            .hero-section { grid-template-columns: 1fr; padding: 110px 30px 70px; gap: 40px; }
+            .philosophy-card { grid-template-columns: 1fr; padding: 50px 40px; gap: 40px; }
+            .philosophy-wrap { padding: 0 20px 70px; }
+            .fees-grid { grid-template-columns: 1fr; }
+            .fees-section { padding: 70px 30px; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .reviews-wrap { padding: 0 20px 70px; }
+            .reviews-card { padding: 50px 40px; }
+            .contact-card { grid-template-columns: 1fr; padding: 50px 40px; }
+            .contact-wrap { padding: 0 20px 70px; }
+            .news-section { padding: 60px 30px; }
+            .section-wrap { padding: 70px 30px; }
+            .swiper-hero { height: 360px; }
+            .carousel-badge { display: none; }
+        }
+        @media (max-width: 768px) {
+            .site-nav { padding: 14px 24px; }
+            .nav-links {
+                display: none; flex-direction: column;
+                background: white; position: absolute;
+                top: 100%; left: 0; right: 0;
+                padding: 20px 24px; gap: 4px;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            }
+            .nav-links.open { display: flex; }
+            .hamburger { display: flex; }
+            .hero-section { padding: 95px 22px 60px; }
+            .brand-name { font-size: 0.92rem; }
+            .fees-grid { grid-template-columns: 1fr; }
+        }
     </style>
-  </head>
-  
-  <body>
+</head>
+
+<body>
+    <!-- Facebook SDK (original, preserved) -->
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0" nonce="TE16BVqE"></script>
-    
-    <div class="container-fluid px-4">
-      
-      <div class="row tm-brand-row mt-3" data-aos="fade-down" data-aos-duration="1000">
-        <div class="col-lg-5 col-12">
-          <div class="tm-brand-container">
-            <h2 class="tm-brand-name">Camrose Little Angels Daycare Society</h2>
-          </div>
-        </div>
-        <div class="col-lg-7 col-12 tm-nav-col">
-          <nav class="navbar navbar-expand-lg navbar-light tm-navbar">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ml-auto mr-0">
-                <li class="nav-item active"><div class="tm-nav-link-highlight"></div><a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a></li>
-                <li class="nav-item"><div class="tm-nav-link-highlight"></div><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><div class="tm-nav-link-highlight"></div><a class="nav-link" href="gallery.html">Gallery</a></li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0"
+        nonce="TE16BVqE"></script>
 
-      <div class="row tm-welcome-row mt-5">
-        <div class="col-12 tm-page-cols-container">
-          <div class="tm-page-col-left tm-welcome-box" data-aos="fade-right" data-aos-duration="1200">
-            <p class="tm-welcome-text" style="font-size: 1.2rem;">
-              <em><b>Hours of Operation</b>: <br>Regular hours of operation are from <br> <strong>6:00 a.m. to 6:30 p.m.</strong> <br>Monday to Friday.</em>
+    <!-- ================================================================
+         NAVBAR
+    ================================================================ -->
+    <nav class="site-nav" id="siteNav">
+        <div class="brand-name">Camrose Little Angels Daycare Society</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- ================================================================
+         HERO SECTION
+    ================================================================ -->
+    <section class="hero-section" id="home">
+        <div class="blob-1"></div>
+        <div class="blob-2"></div>
+
+        <div class="hero-left" data-aos="fade-right" data-aos-duration="1100">
+            <span class="eyebrow">✨ Camrose, Alberta</span>
+            <h1 class="hero-title">
+                Where Every Child<br>
+                <span class="accent">Grows &amp; Shines</span>
+            </h1>
+            <p class="hero-subtitle">
+                A nurturing home away from home — play-based learning in a safe, warm, and loving environment for children 0–7.
             </p>
-          </div>
-          
-          <div class="tm-page-col-right" data-aos="fade-left" data-aos-duration="1200">
-            <div class="swiper mySwiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="img/gallery/2.jpeg" alt="Gallery Image 2"></div>
-                <div class="swiper-slide"><img src="img/gallery/3.jpeg" alt="Gallery Image 3"></div>
-                <div class="swiper-slide"><img src="img/gallery/1.jpeg" alt="Gallery Image 1"></div>
-                <div class="swiper-slide"><img src="img/gallery/4.jpeg" alt="Gallery Image 4"></div>
-                <div class="swiper-slide"><img src="img/gallery/5.jpeg" alt="Gallery Image 5"></div>
-                <div class="swiper-slide"><img src="img/gallery/6.jpeg" alt="Gallery Image 6"></div>
-                <div class="swiper-slide"><img src="img/gallery/7.jpeg" alt="Gallery Image 7"></div>
-                <div class="swiper-slide"><img src="img/gallery/8.jpeg" alt="Gallery Image 8"></div>
-                <div class="swiper-slide"><img src="img/gallery/9.jpeg" alt="Gallery Image 9"></div>
-                <div class="swiper-slide"><img src="img/gallery/10.jpeg" alt="Gallery Image 10"></div>
-                <div class="swiper-slide"><img src="img/gallery/11.jpeg" alt="Gallery Image 11"></div>
-                <div class="swiper-slide"><img src="img/gallery/12.jpeg" alt="Gallery Image 12"></div>
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <section class="row mt-5 tm-pt-4 tm-pb-6 content-card" data-aos="fade-up" data-aos-duration="1000">
-        <div class="col-12 tm-page-cols-container">
-          <div class="tm-page-col-left tm-welcome-box tm-bg-primary text-center" style="background-color:transparent !important; box-shadow: none;">
-            <img src="img.png" alt="" class="img-fluid" style="border-radius: 20px;">
-          </div>
-          <div class="tm-page-col-right">
-            <h2 class="tm-text-secondary tm-mb-5">Our Philosophy</h2>
-            <p class="tm-mb-6">Camrose Little Angels Daycare Society believes that children are resourceful, capable and active learners whose learning, growth and development are profoundly influenced by the quality care and relationships they receive. It is every child's right to have an open, engaging, and responsive environment where they explore the world through play.</p>
-            <p class="tm-mb-6">Camrose Little Angels Daycare Society provides children's experience in a safe and nurturing environment where their social, emotional, physical and cognitive development is supported. These environments are intended to promote positive self-identity and a sense of belonging. Children will have open and flexible environments where playful exploration, problem solving, and creativity are encouraged and purposely planned by the educators. Environments will reflect a sense of belonging where children feel nurtured and supported.</p>
-            <p class="mb-0">Play is integral to children's learning and richly formative in their capacity for relationship. Play is the work of children. Camrose Little Angels Daycare Society believes that children experience the world through play and educators play a pivotal role in providing these positive play experiences, and becoming co-learners, co-researchers, and co-imagineers of possibilities.</p>
-            
-            <div class="text-center mt-5 mb-4" data-aos="zoom-in" data-aos-delay="200">
-              <a href="handbook2.pdf" target="_blank" class="btn-playful">SEE PARENT HANDBOOK</a>
-              <a href="https://berlin.timesavr.net/prod/registration.php?cid=2261" class="btn-playful alt">REGISTRATION FORM</a>
+            <div class="hours-card">
+                <div class="label">Hours of Operation</div>
+                <div class="time">6:00 AM – 6:30 PM</div>
+                <div class="days">Monday to Friday</div>
             </div>
 
-            <div class="alert alert-warning text-center mt-4" style="border-radius: 15px; font-weight: bold; color: #d35400;">
-              WE ARE HIRING!! Looking for a Level 2 or above Early Childhood Educator. Apply via email or phone, contact details below.
+            <div class="hero-ctas">
+                <a href="handbook2.pdf" target="_blank" class="btn-fill">📄 Parent Handbook</a>
+                <a href="https://berlin.timesavr.net/prod/registration.php?cid=2261" class="btn-fill sage">📝 Register Now</a>
             </div>
-          </div>
         </div>
-      </section>
 
-      <section class="row tm-pt-4 tm-pb-6 content-card" data-aos="fade-up" data-aos-duration="1000">
-        <div class="col-12">
-          <h2 class="text-center mb-4" style="color: #ff6b81;">Fee Structure</h2>
-          
-          <h4 class="mt-4" style="color: #4ecdc4;">Daycare Rates</h4>
-          <table>
-            <thead><tr><th>Child Age</th><th>Fee per Month (17 days or more)</th></tr></thead>
-            <tbody>
-              <tr><td>0-4 Years</td><td>$925</td></tr>
-              <tr><td>4-7 Years</td><td>$875</td></tr>
-            </tbody>
-          </table>
-
-          <h4 class="mt-5" style="color: #4ecdc4;">OSC Rates</h4>
-          <table>
-            <thead><tr><th>Time</th><th>Fee per Month (17 days or more)</th></tr></thead>
-            <tbody>
-              <tr><td>Full Time (100+ hours)</td><td>$825</td></tr>
-              <tr><td>Part Time</td><td>$600</td></tr>
-            </tbody>
-          </table>
-
-          <h4 class="mt-5" style="color: #4ecdc4;">OSC Rates DURING SCHOOL</h4>
-          <table>
-            <thead><tr><th>Time</th><th>Fee per Month (17 days or more)</th></tr></thead>
-            <tbody>
-              <tr><td>Full Time (100+ hours)</td><td>$825</td></tr>
-              <tr><td>50-99 hours</td><td>$600</td></tr>
-              <tr><td>25-49 hours</td><td>$500</td></tr>
-            </tbody>
-          </table>
-
-          <div class="text-center mt-4">
-            <p>Minimum OSC hours are 25/month.</p>
-            <p>Overtime Rate (more than 9 hrs 30 mins) = $10.00/hr</p>
-            <p class="mt-4" style="font-size: 1.3rem; color: #ff6b81; font-family: 'Baloo 2', cursive;" data-aos="flip-up"><b>Subsidy available for eligible parents.</b></p>
-            
-            <p class="mt-4" style="font-size: 1.1rem;">
-              Check out our <a href="gallery.html" style="color: #4ecdc4; text-decoration: underline;">Gallery</a> for images of Daycare <br>
-              Check out our <a href="about.html" style="color: #4ecdc4; text-decoration: underline;">About page</a> for more information.
-            </p>
-          </div>
+        <div class="hero-right" data-aos="fade-left" data-aos-duration="1100" data-aos-delay="150">
+            <div class="swiper swiper-hero mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="img/gallery/2.jpeg"  alt="Little Angels Daycare"></div>
+                    <div class="swiper-slide"><img src="img/gallery/3.jpeg"  alt="Little Angels Daycare"></div>
+                    <div class="swiper-slide"><img src="img/gallery/1.jpeg"  alt="Little Angels Daycare"></div>
+                    <div class="swiper-slide"><img src="img/gallery/4.jpeg"  alt="Little Angels Daycare"></div>
+                    <div class="swiper-slide"><img src="img/gallery/5.jpeg"  alt="Little Angels Daycare"></div>
+                    <div class="swiper-slide"><img src="img/gallery/6.jpeg"  alt="Little Angels Daycare"></div>
+                    <div class="swiper-slide"><img src="img/gallery/7.jpeg"  alt="Little Angels Daycare"></div>
+                    <div class="swiper-slide"><img src="img/gallery/8.jpeg"  alt="Little Angels Daycare"></div>
+                    <div class="swiper-slide"><img src="img/gallery/9.jpeg"  alt="Little Angels Daycare"></div>
+                    <div class="swiper-slide"><img src="img/gallery/10.jpeg" alt="Little Angels Daycare"></div>
+                    <div class="swiper-slide"><img src="img/gallery/11.jpeg" alt="Little Angels Daycare"></div>
+                    <div class="swiper-slide"><img src="img/gallery/12.jpeg" alt="Little Angels Daycare"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="carousel-badge" data-aos="zoom-in" data-aos-delay="600">
+                <div class="cb-icon">🌟</div>
+                <div class="cb-text">
+                    <div class="num">Licensed</div>
+                    <div class="sub">& Regulated Care</div>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <section class="news-section mt-4" data-aos="zoom-in-up" data-aos-duration="1000">
-        <h2 class="text-center mb-4" style="color: #ff6b81;">NEWS</h2>
-        <div class="news-card">
-          <i class="fas fa-info-circle mr-2" style="color: #ff6b81;"></i> Please Note that BRSD Bussing Division does not have any bus stops near our daycare and we do not provide bussing to and from the schools.
-        </div>
-        <div class="news-card">
-          <i class="fas fa-envelope mr-2" style="color: #4ecdc4;"></i> Please mail any feedback.
-        </div>
-      </section>
+    <!-- ================================================================
+         PHILOSOPHY SECTION
+    ================================================================ -->
+    <div class="philosophy-wrap" data-aos="fade-up" data-aos-duration="900">
+        <div class="philosophy-card">
+            <div class="philosophy-image-wrap" data-aos="fade-right" data-aos-delay="100">
+                <img src="img.png" alt="Daycare illustration">
+            </div>
+            <div class="philosophy-text" data-aos="fade-left" data-aos-delay="200">
+                <span class="section-tag">Our Philosophy</span>
+                <h2 class="section-heading">Children Are <em>Capable</em> Learners</h2>
+                <span class="big-quote">"</span>
+                <p>
+                    Camrose Little Angels Daycare Society believes that children are resourceful, capable and active learners
+                    whose learning, growth and development are profoundly influenced by the quality care and
+                    relationships they receive. It is every child's right to have an open, engaging, and responsive
+                    environment where they explore the world through play.
+                </p>
+                <p>
+                    Camrose Little Angels Daycare Society provides children's experience in a safe and nurturing
+                    environment where their social, emotional, physical and cognitive development is supported.
+                    These environments are intended to promote positive self-identity and a sense of belonging.
+                    Children will have open and flexible environments where playful exploration, problem solving,
+                    and creativity are encouraged and purposely planned by the educators.
+                </p>
+                <p>
+                    Play is integral to children's learning and richly formative in their capacity for relationship. Play
+                    is the work of children. Camrose Little Angels Daycare Society believes that children experience the world
+                    through play and educators play a pivotal role in providing these positive play experiences, and
+                    becoming co-learners, co-researchers, and co-imagineers of possibilities.
+                </p>
 
-      <section class="reviews-section mt-5 text-center" data-aos="fade-up" data-aos-duration="1000">
-        <h2 class="mb-5" style="color: #2c3e50;">REVIEWS</h2>
-        <div class="d-flex justify-content-center flex-wrap">
-          <div class="fb-post m-3" data-href="https://e.facebook.com/lisa.k.markovich/posts/10157828604761364" data-width="700" data-show-text="true">
-            <blockquote cite="https://www.facebook.com/lisa.k.markovich/posts/10157828604761364" class="fb-xfbml-parse-ignore"><p>We could not be happier with the care Victoria receives at Little Angels Daycare. The staff are friendly, educated,...</p>Posted by <a href="#" role="button">Lisa Kingston</a> on&nbsp;<a href="https://www.facebook.com/lisa.k.markovich/posts/10157828604761364">Monday, 9 August 2021</a></blockquote>
-          </div>
-          <div class="fb-post m-3" data-href="https://en-gb.facebook.com/nod.sawulabrown/posts/4413037648783127" data-width="350" data-show-text="true">
-            <blockquote cite="https://www.facebook.com/nod.sawulabrown/posts/4413037648783127" class="fb-xfbml-parse-ignore"><p>My son goes to Little Angels and he absolutely loves it. He get so excited to go everyday, and he even asks me to take him on the weekends. Great staff, friendly owners. I’m so happy we found them!</p>Posted by <a href="#" role="button">Nod Snowden</a> on&nbsp;<a href="https://www.facebook.com/nod.sawulabrown/posts/4413037648783127">Saturday, 17 July 2021</a></blockquote>
-          </div>
-        </div>
-      </section>
+                <div class="cta-group">
+                    <a href="handbook2.pdf" target="_blank" class="btn-fill">📄 Parent Handbook</a>
+                    <a href="https://berlin.timesavr.net/prod/registration.php?cid=2261" class="btn-outline">📝 Registration Form</a>
+                </div>
 
-      <section class="row contact-section mt-5 tm-call-to-action-col" data-aos="fade-up">
-        <div class="col-12 text-center">
-          <h2 class="mb-4 text-white">Contact</h2>
-          <p style="font-size: 1.2rem; line-height: 2;">
-            <i class="fas fa-map-marker-alt mr-2"></i> 4907 47 street Camrose Ab T4V 1J9<br>
-            <i class="fas fa-envelope mr-2"></i> littleangels@camrosecare.ca <br>
-            <i class="fas fa-phone mr-2"></i> (780) 678-0701 - <span style="font-weight:bold; color: #ffe66d;">Faran Syed (Director)</span><br>
-            <i class="fab fa-facebook mr-2"></i> <a href="https://facebook.com/camroselittleangels.ca" target="_blank">facebook.com/camroselittleangels.ca</a>
-          </p>
+                <div class="hiring-banner" data-aos="zoom-in" data-aos-delay="300">
+                    <span class="hi-icon">📢</span>
+                    <p>WE ARE HIRING! Looking for a Level 2 or above Early Childhood Educator. Apply via email or phone — contact details below.</p>
+                </div>
+            </div>
         </div>
-      </section>
-
-      <footer class="row tm-page-footer mt-5 mb-4 text-center">
-        <p class="col-12 tm-copyright-text mb-0">
-          <a href="https://linkedin.com/in/architsoni" style="color: #4ecdc4; text-decoration: underline;">Click here to contact for a personal/professional website</a><br>
-          Designed by <a href="https://fb.com/templatemo" rel="nofollow" class="tm-copyright-link" style="color: #ff6b81;">Template Mo</a>
-        </p>
-      </footer>
     </div>
 
+    <!-- ================================================================
+         FEE STRUCTURE
+    ================================================================ -->
+    <section class="fees-section" data-aos="fade-up" data-aos-duration="900">
+        <div class="fees-intro">
+            <span class="section-tag gold">Transparent Pricing</span>
+            <h2 class="section-heading">Fee Structure</h2>
+            <p>Clear, straightforward pricing for quality childcare you can trust.</p>
+        </div>
+
+        <div class="fees-grid">
+            <!-- Daycare Rates -->
+            <div class="fee-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="fee-card-header">
+                    <div class="fee-card-icon">🍼</div>
+                    <div class="fee-card-title">Daycare Rates</div>
+                </div>
+                <div class="fee-card-sub">Per month · 17 days or more</div>
+                <div class="fee-row">
+                    <span class="fee-label">Ages 0–4 Years</span>
+                    <span class="fee-amount">$925</span>
+                </div>
+                <div class="fee-row">
+                    <span class="fee-label">Ages 4–7 Years</span>
+                    <span class="fee-amount">$875</span>
+                </div>
+            </div>
+
+            <!-- OSC Rates -->
+            <div class="fee-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="fee-card-header">
+                    <div class="fee-card-icon">🎒</div>
+                    <div class="fee-card-title">OSC Rates</div>
+                </div>
+                <div class="fee-card-sub">Per month · 17 days or more</div>
+                <div class="fee-row">
+                    <span class="fee-label">Full Time (100+ hours)</span>
+                    <span class="fee-amount">$825</span>
+                </div>
+                <div class="fee-row">
+                    <span class="fee-label">Part Time</span>
+                    <span class="fee-amount">$600</span>
+                </div>
+            </div>
+
+            <!-- OSC During School -->
+            <div class="fee-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="fee-card-header">
+                    <div class="fee-card-icon">🏫</div>
+                    <div class="fee-card-title">OSC During School</div>
+                </div>
+                <div class="fee-card-sub">Per month · 17 days or more</div>
+                <div class="fee-row">
+                    <span class="fee-label">Full Time (100+ hours)</span>
+                    <span class="fee-amount">$825</span>
+                </div>
+                <div class="fee-row">
+                    <span class="fee-label">50–99 hours</span>
+                    <span class="fee-amount">$600</span>
+                </div>
+                <div class="fee-row">
+                    <span class="fee-label">25–49 hours</span>
+                    <span class="fee-amount">$500</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes bar -->
+        <div class="fee-notes" data-aos="fade-up" data-aos-delay="100">
+            <div class="fee-note">
+                <div class="dot"></div>
+                <span>Minimum OSC hours: 25/month</span>
+            </div>
+            <div class="fee-note">
+                <div class="dot"></div>
+                <span>Overtime Rate (over 9 hrs 30 min): $10.00/hr</span>
+            </div>
+            <div class="subsidy-badge">✅ Subsidy Available for Eligible Parents</div>
+        </div>
+
+        <p class="fees-links">
+            Browse our <a href="gallery.html">Gallery</a> for daycare images &nbsp;·&nbsp;
+            <a href="about.html" class="sage-link">About page</a> for more information
+        </p>
+    </section>
+
+    <!-- ================================================================
+         NEWS SECTION
+    ================================================================ -->
+    <section class="news-section" data-aos="fade-up" data-aos-duration="900">
+        <span class="section-tag">Notices</span>
+        <h2 class="section-heading">News &amp; Updates</h2>
+        <div class="news-track">
+            <div class="news-item">
+                <div class="news-icon">🚌</div>
+                <div class="news-text">
+                    <strong>Bussing Notice:</strong> Please note that BRSD Bussing Division does not have any bus stops near our daycare and we do not provide bussing to and from the schools.
+                </div>
+            </div>
+            <div class="news-item">
+                <div class="news-icon">✉️</div>
+                <div class="news-text">
+                    <strong>Feedback:</strong> Please mail any feedback to our team. We welcome all suggestions and comments from parents and guardians.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         REVIEWS SECTION
+    ================================================================ -->
+    <div class="reviews-wrap" data-aos="fade-up" data-aos-duration="900">
+        <div class="reviews-card">
+            <span class="section-tag white">What Parents Say</span>
+            <h2 class="section-heading" style="color: white; margin-top: 8px;">
+                Families Love Little Angels
+            </h2>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-quote">
+                        "We could not be happier with the care Victoria receives at Little Angels Daycare. The staff are friendly, educated, and truly dedicated to every child's development."
+                    </div>
+                    <div class="review-author">
+                        <div class="author-avatar">LK</div>
+                        <div>
+                            <div class="author-name">Lisa Kingston</div>
+                            <div class="author-meta">Parent · August 9, 2021</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-quote">
+                        "My son goes to Little Angels and he absolutely loves it. He gets so excited to go every day, and he even asks me to take him on the weekends. Great staff, friendly owners."
+                    </div>
+                    <div class="review-author">
+                        <div class="author-avatar">NS</div>
+                        <div>
+                            <div class="author-name">Nod Snowden</div>
+                            <div class="author-meta">Parent · July 17, 2021</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Original FB embeds preserved (hidden) -->
+        <div class="fb-embeds-preserved">
+            <div class="fb-post"
+                data-href="https://e.facebook.com/lisa.k.markovich/posts/10157828604761364"
+                data-width="700" data-show-text="true">
+                <blockquote cite="https://www.facebook.com/lisa.k.markovich/posts/10157828604761364"
+                    class="fb-xfbml-parse-ignore"></blockquote>
+            </div>
+            <div class="fb-post"
+                data-href="https://en-gb.facebook.com/nod.sawulabrown/posts/4413037648783127"
+                data-width="350" data-show-text="true">
+                <blockquote cite="https://www.facebook.com/nod.sawulabrown/posts/4413037648783127"
+                    class="fb-xfbml-parse-ignore"></blockquote>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================
+         CONTACT SECTION
+    ================================================================ -->
+    <div class="contact-wrap" data-aos="fade-up" data-aos-duration="900">
+        <div class="contact-card">
+            <div class="contact-left">
+                <span class="section-tag white">Get in Touch</span>
+                <h2 class="section-heading" style="color: white; margin-top: 8px;">
+                    Visit or Contact Us
+                </h2>
+                <p>We'd love to hear from you. Stop by, give us a call, or drop us a message — we're always happy to connect with families.</p>
+            </div>
+            <div class="contact-right">
+                <div class="contact-items">
+                    <div class="contact-item">
+                        <div class="ci-icon">📍</div>
+                        <div>
+                            <div class="ci-label">Address</div>
+                            <div class="ci-value">4907 47 Street, Camrose, AB T4V 1J9</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="ci-icon">✉️</div>
+                        <div>
+                            <div class="ci-label">Email</div>
+                            <div class="ci-value">
+                                <a href="mailto:littleangels@camrosecare.ca">littleangels@camrosecare.ca</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="ci-icon">📞</div>
+                        <div>
+                            <div class="ci-label">Phone &amp; Director</div>
+                            <div class="ci-value">(780) 678-0701 · <strong>Faran Syed</strong></div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="ci-icon">📘</div>
+                        <div>
+                            <div class="ci-label">Facebook</div>
+                            <div class="ci-value">
+                                <a href="https://facebook.com/camroselittleangels.ca" target="_blank">
+                                    facebook.com/camroselittleangels.ca
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================
+         FOOTER
+    ================================================================ -->
+    <footer class="site-footer">
+        <div class="divider"></div>
+        <p>
+            <a href="https://linkedin.com/in/architsoni" target="_blank">
+                Click here to contact for a personal/professional website
+            </a>
+        </p>
+        <p style="margin-top: 8px; color: var(--faint);">
+            Designed by <a href="https://fb.com/templatemo" rel="nofollow">Template Mo</a>
+        </p>
+    </footer>
+
+    <!-- ================================================================
+         SCRIPTS
+    ================================================================ -->
     <script src="js/jquery.min.js"></script>
     <script src="js/parallax.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    
-    <script>
-      // Initialize Scroll Animations
-      AOS.init({
-        once: true, // animation happens only once while scrolling down
-        offset: 100, // triggers animation slightly sooner
-        duration: 800 // smooth, slow animations
-      });
 
-      // Initialize Modern Swiper Carousel
-      var swiper = new Swiper(".mySwiper", {
-        spaceBetween: 30,
-        centeredSlides: true,
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        effect: "fade", // Gives that smooth transition from the original site
-        loop: true
-      });
+    <script>
+        // AOS — scroll animations
+        AOS.init({ once: true, offset: 80, duration: 900 });
+
+        // Navbar scroll shrink
+        window.addEventListener('scroll', function () {
+            const nav = document.getElementById('siteNav');
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile hamburger
+        function toggleNav() {
+            document.getElementById('navLinks').classList.toggle('open');
+        }
+
+        // Swiper carousel
+        new Swiper(".mySwiper", {
+            loop: true,
+            effect: "fade",
+            autoplay: { delay: 2800, disableOnInteraction: false },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            speed: 900
+        });
     </script>
-  </body>
+</body>
 </html>
