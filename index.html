@@ -475,6 +475,42 @@
         .ci-value a:hover { text-decoration: underline; }
 
         /* ============================================================
+           FEATURES SECTION (Transport · Kitchen · Playground)
+        ============================================================ */
+        .features-section { padding: 0 40px 90px; }
+        .features-intro { text-align: center; margin-bottom: 46px; }
+
+        .features-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
+        }
+        .feature-card {
+            background: white; border-radius: 26px; padding: 38px 32px;
+            box-shadow: 0 8px 36px rgba(44,36,22,0.06);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 20px 55px rgba(44,36,22,0.1); }
+
+        .feature-icon-wrap {
+            width: 70px; height: 70px; border-radius: 22px; margin: 0 auto 22px;
+            display: flex; align-items: center; justify-content: center; font-size: 2rem;
+        }
+        .feature-title {
+            font-family: 'Playfair Display', serif; font-size: 1.2rem;
+            font-weight: 700; color: var(--dark); margin-bottom: 14px;
+        }
+        .feature-desc { font-size: 0.95rem; color: var(--mid); line-height: 1.8; }
+
+        @media (max-width: 992px) {
+            .features-section { padding: 0 18px 65px; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ============================================================
+           END FEATURES
+        ============================================================ */
+
+        /* ============================================================
            FOOTER
         ============================================================ */
         .site-footer { text-align: center; padding: 38px 60px 48px; color: var(--faint); font-size: 0.84rem; }
@@ -532,7 +568,10 @@
          NAVBAR
     ================================================================ -->
     <nav class="site-nav" id="siteNav">
-        <div class="brand-name">Camrose Little Angels Daycare Society</div>
+        <div style="display:flex; align-items:center; gap:14px;">
+            <img src="new-logo.jpeg" alt="Little Angels Logo" style="height:54px; width:auto; object-fit:contain;">
+            <div class="brand-name">Camrose Little Angels Daycare Society</div>
+        </div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#" class="active">Home <span class="sr-only">(current)</span></a></li>
             <li><a href="about.html">About</a></li>
@@ -558,7 +597,7 @@
                 <span class="accent">Grows &amp; Shines</span>
             </h1>
             <p class="hero-subtitle">
-                A nurturing home away from home — play-based learning in a safe, warm, and loving environment for children aged 0–7.
+                A nurturing home away from home — play-based learning in a safe, warm, and loving environment for children aged 0–12.
             </p>
             <div class="hours-card">
                 <div class="h-label">Hours of Operation</div>
@@ -575,15 +614,17 @@
         <div class="hero-right" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="150">
             <div class="slideshow-outer" id="slideshowOuter">
 
-                <div class="slide-frame active"><img src="img/gallery/2.jpeg"  alt="Little Angels Daycare"></div>
+                <div class="slide-frame active"><img src="img/gallery/new-room1.jpeg" alt="Little Angels Daycare Room"></div>
+                <div class="slide-frame"><img src="img/gallery/new-room2.jpeg" alt="Little Angels Daycare Room"></div>
+                <div class="slide-frame"><img src="img/gallery/new-room3.jpeg" alt="Little Angels Daycare Room"></div>
+                <div class="slide-frame"><img src="img/gallery/new-room4.jpeg" alt="Little Angels Daycare Room"></div>
+                <div class="slide-frame"><img src="img/gallery/2.jpeg"  alt="Little Angels Daycare"></div>
                 <div class="slide-frame"><img src="img/gallery/3.jpeg"  alt="Little Angels Daycare"></div>
                 <div class="slide-frame"><img src="img/gallery/1.jpeg"  alt="Little Angels Daycare"></div>
                 <div class="slide-frame"><img src="img/gallery/4.jpeg"  alt="Little Angels Daycare"></div>
                 <div class="slide-frame"><img src="img/gallery/5.jpeg"  alt="Little Angels Daycare"></div>
                 <div class="slide-frame"><img src="img/gallery/6.jpeg"  alt="Little Angels Daycare"></div>
                 <div class="slide-frame"><img src="img/gallery/7.jpeg"  alt="Little Angels Daycare"></div>
-                <div class="slide-frame"><img src="img/gallery/8.jpeg"  alt="Little Angels Daycare"></div>
-                <div class="slide-frame"><img src="img/gallery/9.jpeg"  alt="Little Angels Daycare"></div>
                 <div class="slide-frame"><img src="img/gallery/10.jpeg" alt="Little Angels Daycare"></div>
                 <div class="slide-frame"><img src="img/gallery/11.jpeg" alt="Little Angels Daycare"></div>
                 <div class="slide-frame"><img src="img/gallery/12.jpeg" alt="Little Angels Daycare"></div>
@@ -607,7 +648,7 @@
     <div class="philosophy-wrap" data-aos="fade-up" data-aos-duration="900">
         <div class="philosophy-card">
             <div class="philo-img-wrap" data-aos="fade-right" data-aos-delay="100">
-                <img src="img.png" alt="Daycare illustration">
+                <img src="new-logo.jpeg" alt="Camrose Little Angels Daycare Logo">
             </div>
             <div class="philo-text" data-aos="fade-left" data-aos-delay="200">
                 <span class="section-tag">Our Philosophy</span>
@@ -646,49 +687,119 @@
     </div>
 
     <!-- ================================================================
+         FEATURES: TRANSPORT · KITCHEN · PLAYGROUND
+    ================================================================ -->
+    <section class="features-section" data-aos="fade-up" data-aos-duration="900">
+        <div class="features-intro">
+            <span class="section-tag sage">What We Offer</span>
+            <h2 class="section-heading">Everything Your Child Needs</h2>
+            <p style="color:var(--mid); max-width:480px; margin:0 auto;">Beyond exceptional care — we provide the services that make your family's day smoother.</p>
+        </div>
+        <div class="features-grid">
+
+            <!-- Transportation -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon-wrap" style="background:var(--gold-light);">🚐</div>
+                <h3 class="feature-title">Private Transportation</h3>
+                <p class="feature-desc">
+                    We offer private transportation from <strong>home to daycare</strong> between
+                    <strong>8:30 AM and 10:30 AM</strong>.
+                    <br><span style="display:inline-block; margin-top:8px; background:var(--gold-light); color:#7A5A00; font-size:0.8rem; font-weight:700; padding:3px 12px; border-radius:50px; letter-spacing:0.5px;">Available as an Add-On</span>
+                </p>
+            </div>
+
+            <!-- Kitchen & Meals -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon-wrap" style="background:var(--terra-light);">🍽️</div>
+                <h3 class="feature-title">Full Kitchen & Meals</h3>
+                <p class="feature-desc">
+                    We offer nutritious meals prepared fresh in our kitchen every day:
+                    <strong>Morning Snack · Lunch · Afternoon Snack</strong>.
+                    <br><span style="display:inline-block; margin-top:8px; background:var(--gold-light); color:#7A5A00; font-size:0.8rem; font-weight:700; padding:3px 12px; border-radius:50px; letter-spacing:0.5px;">Available as an Add-On</span>
+                </p>
+            </div>
+
+            <!-- Playground & Gym -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon-wrap" style="background:var(--sage-light);">🌳</div>
+                <h3 class="feature-title">Outdoor & Indoor Play</h3>
+                <p class="feature-desc">
+                    A <strong>huge outdoor playground</strong> with more equipment coming this Spring.
+                    Plus a dedicated <strong>Indoor Gym</strong> for active play on bad weather days.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================================================================
          FEE STRUCTURE
     ================================================================ -->
     <section class="fees-section" data-aos="fade-up" data-aos-duration="900">
         <div class="fees-intro">
             <span class="section-tag gold">Transparent Pricing</span>
             <h2 class="section-heading">Fee Structure</h2>
-            <p>Clear, straightforward pricing for quality childcare you can trust.</p>
+            <p>Fully licensed and proud to offer the <strong>Alberta Affordability Grant</strong> for Daycare and the <strong>Licensed OSC Subsidy</strong> — making quality care more accessible for every family.</p>
         </div>
         <div class="fees-grid">
+
+            <!-- Daycare Rates -->
             <div class="fee-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="fee-card-header">
                     <div class="fee-card-icon">🍼</div>
                     <div class="fee-card-title">Daycare Rates</div>
                 </div>
-                <div class="fee-card-sub">Per month · 17 days or more</div>
-                <div class="fee-row"><span class="fee-label">Ages 0–4 Years</span><span class="fee-amount">$925</span></div>
-                <div class="fee-row"><span class="fee-label">Ages 4–7 Years</span><span class="fee-amount">$875</span></div>
+                <div class="fee-card-sub">Alberta-wide Flat Rate · Affordability Grant Applied</div>
+                <div class="fee-row">
+                    <span class="fee-label">Full-Time Care</span>
+                    <span class="fee-amount">$326.25<span style="font-size:0.7rem; font-family:'DM Sans',sans-serif; font-weight:500;">/mo</span></span>
+                </div>
+                <div class="fee-row">
+                    <span class="fee-label">Part-Time Care</span>
+                    <span class="fee-amount">$230<span style="font-size:0.7rem; font-family:'DM Sans',sans-serif; font-weight:500;">/mo</span></span>
+                </div>
+                <p style="font-size:0.78rem; color:var(--faint); margin-top:12px; line-height:1.5;">Remainder covered by the Alberta Affordability Grant.</p>
             </div>
+
+            <!-- OSC Summer / Full-Time -->
             <div class="fee-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="fee-card-header">
-                    <div class="fee-card-icon">🎒</div>
-                    <div class="fee-card-title">OSC Rates</div>
+                    <div class="fee-card-icon">☀️</div>
+                    <div class="fee-card-title">OSC — Summer &amp; Full-Time</div>
                 </div>
-                <div class="fee-card-sub">Per month · 17 days or more</div>
-                <div class="fee-row"><span class="fee-label">Full Time (100+ hours)</span><span class="fee-amount">$825</span></div>
-                <div class="fee-row"><span class="fee-label">Part Time</span><span class="fee-amount">$600</span></div>
+                <div class="fee-card-sub">Before deducting licensed subsidy</div>
+                <div class="fee-row">
+                    <span class="fee-label">Summer / Full-Time</span>
+                    <span class="fee-amount">$800<span style="font-size:0.7rem; font-family:'DM Sans',sans-serif; font-weight:500;">/mo</span></span>
+                </div>
+                <p style="font-size:0.78rem; color:var(--faint); margin-top:12px; line-height:1.5;">Licensed for OSC Subsidy — subsidy deducted from the above rate. Additional discounts available.</p>
             </div>
+
+            <!-- OSC During School -->
             <div class="fee-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="fee-card-header">
                     <div class="fee-card-icon">🏫</div>
-                    <div class="fee-card-title">OSC During School</div>
+                    <div class="fee-card-title">OSC — During School Term</div>
                 </div>
-                <div class="fee-card-sub">Per month · 17 days or more</div>
-                <div class="fee-row"><span class="fee-label">Full Time (100+ hours)</span><span class="fee-amount">$825</span></div>
-                <div class="fee-row"><span class="fee-label">50–99 hours</span><span class="fee-amount">$600</span></div>
-                <div class="fee-row"><span class="fee-label">25–49 hours</span><span class="fee-amount">$500</span></div>
+                <div class="fee-card-sub">Before deducting licensed subsidy</div>
+                <div class="fee-row">
+                    <span class="fee-label">Part-Time (50–99 hrs)</span>
+                    <span class="fee-amount">$600<span style="font-size:0.7rem; font-family:'DM Sans',sans-serif; font-weight:500;">/mo</span></span>
+                </div>
+                <div class="fee-row">
+                    <span class="fee-label">Part-Time (0–49 hrs)</span>
+                    <span class="fee-amount">$500<span style="font-size:0.7rem; font-family:'DM Sans',sans-serif; font-weight:500;">/mo</span></span>
+                </div>
+                <p style="font-size:0.78rem; color:var(--faint); margin-top:12px; line-height:1.5;">Subsidy deducted from the above rates. Additional discounts available.</p>
             </div>
         </div>
+
         <div class="fee-notes" data-aos="fade-up" data-aos-delay="100">
-            <div class="fee-note"><div class="dot"></div><span>Minimum OSC hours: 25/month</span></div>
-            <div class="fee-note"><div class="dot"></div><span>Overtime Rate (over 9 hrs 30 min): $10.00/hr</span></div>
-            <div class="subsidy-badge">✅ Subsidy Available for Eligible Parents</div>
+            <div class="fee-note"><div class="dot"></div><span>Fully Licensed Daycare &amp; OSC Provider</span></div>
+            <div class="fee-note"><div class="dot"></div><span>Alberta Affordability Grant applied to Daycare fees</span></div>
+            <div class="subsidy-badge">✅ OSC Subsidy &amp; Additional Discounts Available</div>
         </div>
+
         <p class="fees-links">
             Browse our <a href="gallery.html">Gallery</a> for daycare images &nbsp;·&nbsp;
             <a href="about.html" class="sl">About page</a> for more information
@@ -703,9 +814,9 @@
         <h2 class="section-heading">News &amp; Updates</h2>
         <div class="news-track">
             <div class="news-item">
-                <div class="news-icon">🚌</div>
+                <div class="news-icon">🚐</div>
                 <div class="news-text">
-                    <strong>Bussing Notice:</strong> Please note that BRSD Bussing Division does not have any bus stops near our daycare and we do not provide bussing to and from the schools.
+                    <strong>Private Transportation Available (Add-On):</strong> We offer private transportation from home to daycare between 8:30 AM and 10:30 AM. Contact us for pricing and details.
                 </div>
             </div>
             <div class="news-item">
@@ -804,7 +915,7 @@
     ================================================================ -->
     <footer class="site-footer">
         <div class="footer-divider"></div>
-        <p><a href="https://linkedin.com/in/architsoni" target="_blank">Click here to contact for a personal/professional website</a></p>
+        <p><a href="https://www.linkedin.com/in/4karthik95/" target="_blank">Click here to contact for a personal/professional website</a></p>
         <p style="margin-top:8px; color:var(--faint);">Designed by <a href="https://fb.com/templatemo" rel="nofollow">Template Mo</a></p>
     </footer>
 
