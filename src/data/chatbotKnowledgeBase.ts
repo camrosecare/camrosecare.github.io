@@ -377,7 +377,7 @@ const KNOWLEDGE_BASE: KnowledgeEntry[] = [
     highlights: [
       '100% Nut-Aware / Nut-Free facility',
       'Accommodates dairy-free, gluten-free, egg, vegetarian, and documented dietary restrictions',
-      'Sample lunches include turkey shepherd’s pie, baked rainbow rotini, chicken veggie fried rice, lentil soup & quesadillas'
+      'Monday–Friday meals include French baguettes, pancakes, pasta, meatballs, chicken strips/nuggets, hot dogs, pierogies, soy chunks, vegetables, yogurt, cheese, crackers, wafers, cookies, cereals and juice'
     ],
     followUps: [
       { id: 'f-toddler-tr', label: 'Feeding & nap transitions', query: 'How do nap, feeding, and potty training transitions work?' },

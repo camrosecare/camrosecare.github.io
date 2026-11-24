@@ -164,36 +164,55 @@ export const DailyLifeAndNutrition: React.FC<{ onOpenTour: () => void }> = ({ on
     }
   };
 
-  const menuSchedule: Record<string, { breakfast: string; lunch: string; snack: string; fruit: string }> = {
+  const menuSchedule: Record<string, { morning: string; lunch: string[]; afternoon: string }> = {
     Mon: {
-      breakfast: 'Whole-grain oatmeal with cinnamon and milk',
-      lunch: 'Homemade turkey shepherd’s pie with sweet corn & peas',
-      snack: 'Whole wheat crackers with mild cheddar cheese cubes',
-      fruit: 'Crisp apple wedges & banana slices'
+      morning: 'French Baguette with Jam & Milk',
+      lunch: [
+        'Butter Pasta',
+        'Hot Dogs',
+        'Stir Fried Soy Chunks for vegetarians'
+      ],
+      afternoon: 'Gourmet Wafers & Cheese'
     },
     Tue: {
-      breakfast: 'Warm whole wheat berry pancakes with fruit puree',
-      lunch: 'Baked rainbow rotini pasta with lean beef & garden marinara',
-      snack: 'Vanilla Greek yogurt with crushed oats',
-      fruit: 'Fresh strawberries & orange wheels'
+      morning: 'Wheat Crackers & Yogurt',
+      lunch: [
+        'Pancakes with Syrup',
+        'Chicken Strips',
+        'Cheese Pieces for veg',
+        'Sauteed Peas'
+      ],
+      afternoon: 'Cereals & Milk'
     },
     Wed: {
-      breakfast: 'Toasted whole grain bagels with natural cream cheese',
-      lunch: 'Tender chicken and vegetable fried rice with steamed broccoli',
-      snack: 'Homemade carrot zucchini mini-muffins',
-      fruit: 'Fresh sliced cantaloupe & blueberries'
+      morning: 'French Baguette with Jam & Milk',
+      lunch: [
+        'Meatballs',
+        'Baked Mixed Vegetables Tots (veg)',
+        'Buttered Spaghetti',
+        'Sauteed Vegetables'
+      ],
+      afternoon: 'Cheese Slices & Digestive Cookies'
     },
     Thu: {
-      breakfast: 'Multi-grain cheerios with calcium-fortified milk',
-      lunch: 'Creamy sweet potato & lentil soup with warm soft pita',
-      snack: 'Hummus dip with cucumber coins & sweet bell peppers',
-      fruit: 'Juicy pear slices & honeydew melon'
+      morning: 'Rice Crackers & Cheese Slices',
+      lunch: [
+        'Chicken Nuggets',
+        'Cheese Pierogies stuffed with cheese and veggies for veg',
+        'Pancakes with Syrup',
+        'Sauteed Veggies'
+      ],
+      afternoon: 'Gourmet Wafers & 100% Juice'
     },
     Fri: {
-      breakfast: 'Scrambled eggs with whole grain toast strips',
-      lunch: 'Mild cheese quesadillas with homemade avocado dip & black beans',
-      snack: 'Crispy rice crackers with sunflower butter',
-      fruit: 'Watermelon triangles & seedless grapes'
+      morning: 'French Baguette with Jam & Milk',
+      lunch: [
+        'Mac and Cheese',
+        'Sauteed Corns',
+        'Hot Dogs',
+        'Stir Fried Soy Chunks for vegetarians'
+      ],
+      afternoon: 'Rice Crackers & Yogurt'
     }
   };
 
@@ -483,8 +502,8 @@ export const DailyLifeAndNutrition: React.FC<{ onOpenTour: () => void }> = ({ on
                         <Sun className="w-4 h-4" />
                       </div>
                       <div>
-                        <span className="text-[11px] font-black text-amber-800 uppercase">Morning Snack (8:30 AM)</span>
-                        <p className="text-xs font-bold text-slate-800 mt-0.5">{menuSchedule[selectedDay].breakfast}</p>
+                        <span className="text-[11px] font-black text-amber-800 uppercase">Morning (8:30 AM)</span>
+                        <p className="text-xs font-bold text-slate-800 mt-0.5">{menuSchedule[selectedDay].morning}</p>
                       </div>
                     </div>
 
@@ -493,8 +512,12 @@ export const DailyLifeAndNutrition: React.FC<{ onOpenTour: () => void }> = ({ on
                         <Utensils className="w-4 h-4" />
                       </div>
                       <div>
-                        <span className="text-[11px] font-black text-red-700 uppercase">Hot Cooked Lunch (11:30 AM)</span>
-                        <p className="text-xs font-bold text-slate-800 mt-0.5">{menuSchedule[selectedDay].lunch}</p>
+                        <span className="text-[11px] font-black text-red-700 uppercase">Lunch (11:30 AM)</span>
+                        <ul className="mt-1 space-y-0.5">
+                          {menuSchedule[selectedDay].lunch.map((item) => (
+                            <li key={item} className="text-xs font-bold text-slate-800">• {item}</li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
 
@@ -503,9 +526,9 @@ export const DailyLifeAndNutrition: React.FC<{ onOpenTour: () => void }> = ({ on
                         <Apple className="w-4 h-4" />
                       </div>
                       <div>
-                        <span className="text-[11px] font-black text-blue-700 uppercase">Afternoon Snack & Fruit (3:00 PM)</span>
+                        <span className="text-[11px] font-black text-blue-700 uppercase">Afternoon (3:00 PM)</span>
                         <p className="text-xs font-bold text-slate-800 mt-0.5">
-                          {menuSchedule[selectedDay].snack} · {menuSchedule[selectedDay].fruit}
+                          {menuSchedule[selectedDay].afternoon}
                         </p>
                       </div>
                     </div>
