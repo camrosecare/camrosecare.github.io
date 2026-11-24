@@ -114,18 +114,6 @@ export const ParentResourcesHub: React.FC<ParentResourcesHubProps> = ({
       onAction: onOpenHandbook
     },
     {
-      id: 'subsidy',
-      tag: 'Affordability & Grants',
-      title: 'Alberta $10/Day & Subsidy Calculator',
-      description:
-        'Estimate your monthly childcare invoice after the provincial affordability grant and income subsidies.',
-      buttonLabel: 'Estimate Subsidy',
-      icon: Calculator,
-      buttonIcon: Calculator,
-      accent: 'emerald',
-      onAction: onOpenSubsidy
-    },
-    {
       id: 'wellness',
       tag: 'Health & Protection',
       title: 'Child Wellness & Health Rules',

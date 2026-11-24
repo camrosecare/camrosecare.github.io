@@ -125,7 +125,6 @@ export const ParentAssistantChatbot: React.FC<ParentAssistantChatbotProps> = ({
       onOpenTour();
     } else if (actionType === 'subsidy') {
       setIsOpen(false);
-      onOpenSubsidy();
     } else if (actionType === 'handbook') {
       setIsOpen(false);
       onOpenHandbook();
@@ -216,22 +215,20 @@ export const ParentAssistantChatbot: React.FC<ParentAssistantChatbotProps> = ({
     }
 
     const buttonConfig: Record<
-      Exclude<ChatActionType, 'call' | 'email' | 'register'>,
+      Exclude<ChatActionType, 'call' | 'email' | 'register' | 'subsidy'>,
       { icon: React.ComponentType<{ className?: string }>; style: string }
     > = {
       tour: {
         icon: Calendar,
         style: 'bg-red-600 hover:bg-red-500 text-white'
       },
-      subsidy: {
-        icon: Calculator,
-        style: 'bg-emerald-600 hover:bg-emerald-700 text-white'
-      },
       handbook: {
         icon: BookOpen,
         style: 'bg-indigo-600 hover:bg-indigo-700 text-white'
       }
     };
+
+    if (action.type === 'subsidy') return null;
 
     const cfg = buttonConfig[action.type];
     const Icon = cfg.icon;

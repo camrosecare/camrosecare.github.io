@@ -67,25 +67,6 @@ export const ConceptA_PremiumElegant: React.FC<ConceptProps> = ({ onOpenTour, on
               <Clock className="w-3.5 h-3.5 text-yellow-300" />
               <span>Mon–Fri: 6:00 AM – 6:30 PM</span>
             </span>
-            {onOpenExport ? (
-              <button
-                onClick={onOpenExport}
-                className="bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black px-2.5 py-1 rounded-full flex items-center gap-1 shadow-xs transition-transform active:scale-95"
-                title="Export HTML code, download offline package, or copy code for auditor"
-              >
-                <Download className="w-3.5 h-3.5" />
-                <span>Export / Download Hub</span>
-              </button>
-            ) : (
-              <a
-                href="/camrose_care_concept_a_audit_package.zip"
-                download="camrose_care_concept_a_audit_package.zip"
-                className="bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black px-2.5 py-1 rounded-full flex items-center gap-1 shadow-xs transition-transform active:scale-95"
-              >
-                <Download className="w-3.5 h-3.5" />
-                <span>Download Package</span>
-              </a>
-            )}
             <a href={`tel:${BUSINESS_INFO.phone}`} className="hover:text-yellow-300 transition-colors flex items-center gap-1">
               <Phone className="w-3.5 h-3.5 text-yellow-300" />
               <span>{BUSINESS_INFO.phone}</span>
@@ -157,17 +138,6 @@ export const ConceptA_PremiumElegant: React.FC<ConceptProps> = ({ onOpenTour, on
                   {link.label}
                 </a>
               ))}
-              <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenSubsidy();
-                  }}
-                  className="w-full py-2.5 px-4 rounded-xl bg-blue-50 text-blue-800 text-xs font-black text-center"
-                >
-                  Estimate Subsidy
-                </button>
-              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -193,7 +163,6 @@ export const ConceptA_PremiumElegant: React.FC<ConceptProps> = ({ onOpenTour, on
       <RollingPosterGallery
         includePhilosophy
         onOpenTour={onOpenTour}
-        onOpenSubsidy={onOpenSubsidy}
       />
 
       {/* Programs Section with Animated Tabs */}
@@ -307,7 +276,7 @@ export const ConceptA_PremiumElegant: React.FC<ConceptProps> = ({ onOpenTour, on
       {/* NEW SECTION: Parent Resources & Tool Center */}
       <ParentResourcesHub
         onOpenHandbook={() => setIsHandbookModalOpen(true)}
-        onOpenSubsidy={onOpenSubsidy}
+        onOpenSubsidy={() => {}}
         onOpenTour={() => onOpenTour()}
       />
 
@@ -375,14 +344,6 @@ export const ConceptA_PremiumElegant: React.FC<ConceptProps> = ({ onOpenTour, on
                 className="w-full sm:w-auto px-8 py-4 bg-red-600 hover:bg-red-500 text-white rounded-full font-black text-sm transition-all shadow-xl border-2 border-yellow-300 cursor-pointer"
               >
                 Book a Tour
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={onOpenSubsidy}
-                className="w-full sm:w-auto px-7 py-4 bg-yellow-400 hover:bg-yellow-300 text-slate-950 rounded-full font-black text-sm transition-all shadow-md cursor-pointer"
-              >
-                Estimate Subsidy
               </motion.button>
             </div>
 
@@ -502,7 +463,7 @@ export const ConceptA_PremiumElegant: React.FC<ConceptProps> = ({ onOpenTour, on
             isOpen={isHandbookModalOpen}
             onClose={() => setIsHandbookModalOpen(false)}
             onOpenTour={() => onOpenTour()}
-            onOpenSubsidy={onOpenSubsidy}
+            onOpenSubsidy={() => {}}
           />
         </Suspense>
       )}
